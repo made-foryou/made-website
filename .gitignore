@@ -46,3 +46,5 @@ next-env.d.ts
 # Storyblok CLI — logs en rapporten, niet het schema onder components/
 .storyblok/logs
 .storyblok/reports
+
+.idea
