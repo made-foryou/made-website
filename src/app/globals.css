@@ -1,0 +1,2191 @@
+/* MADE — designtokens en basisstijlen.
+   Waarden komen uit het MADE-huisstijlhandboek 1.0 (designsysteem "MADE").
+   Licht thema = Optie A (Krijt). Donker thema = Optie B (Nachtgroen),
+   automatisch via prefers-color-scheme. */
+
+:root {
+	color-scheme: light dark;
+
+	/* Merkkleuren — vast, veranderen niet per thema */
+	--made-nachtgroen: #0e2b26;
+	--made-nachtgroen-diep: #0a211c;
+	--made-nachtgroen-vlak: #1b3d36;
+	--made-amber: #be8a1c;
+	--made-amber-donker: #8a6210;
+	--made-amber-licht: #d9a63a;
+	--made-krijt: #f3f1e8;
+	--made-wit: #fbfaf5;
+	--made-lijn: #dedbcd;
+	--made-wad: #6e7f78;
+	--made-steen: #47564f;
+	--made-mist: #a9b6b1;
+	--made-nevel: #8fa09a;
+	--made-succes: #1f6b45;
+	--made-fout: #a83a2b;
+	--made-succes-licht: #45a876;
+	--made-fout-licht: #e0705e;
+
+	/* Rollen — licht thema (Optie A · Krijt) */
+	--made-oppervlak: var(--made-krijt);
+	--made-oppervlak-verhoogd: var(--made-wit);
+	--made-inhoud: var(--made-nachtgroen);
+	--made-inhoud-zwak: var(--made-steen);
+	--made-inhoud-subtiel: var(--made-wad);
+	--made-rand: var(--made-lijn);
+	--made-rand-sterk: var(--made-wad);
+	--made-accent: var(--made-amber);
+	--made-op-accent: var(--made-nachtgroen);
+	--made-link: var(--made-amber-donker);
+	--made-focus: var(--made-amber);
+
+	/* Themagebonden onderdelen die geen rol-token hebben.
+	   Hiermee blijft de markup identiek in beide thema's. */
+	--made-logo-woord: var(--made-nachtgroen);
+	--made-logo-slash: var(--made-amber);
+	--made-logo-tagline: var(--made-wad);
+	--made-slash-achter: var(--made-nachtgroen);
+	--made-hero-label: var(--made-inhoud-zwak);
+
+	/* Uitgelicht pakket — donker vlak, ook in het lichte thema */
+	--made-uitgelicht-vlak: var(--made-nachtgroen);
+	--made-uitgelicht-inhoud: var(--made-krijt);
+	--made-uitgelicht-zwak: var(--made-mist);
+	--made-uitgelicht-subtiel: var(--made-nevel);
+	--made-uitgelicht-nadruk: var(--made-amber-licht);
+
+	/* Typografie */
+	--font-kop: var(--font-nunito), 'Trebuchet MS', system-ui, sans-serif;
+	--font-tekst: var(--font-instrument-sans), 'Segoe UI', system-ui, sans-serif;
+
+	/* Ruimte */
+	--made-space-1: 4px;
+	--made-space-2: 8px;
+	--made-space-3: 12px;
+	--made-space-4: 14px;
+	--made-space-5: 18px;
+	--made-space-6: 20px;
+	--made-space-7: 26px;
+	--made-space-8: 34px;
+	--made-space-9: 46px;
+
+	/* Radius */
+	--made-radius-s: 10px;
+	--made-radius-m: 16px;
+	--made-radius-l: 24px;
+	--made-radius-pil: 999px;
+
+	/* Onthullen bij scroll — lange uitloop, zodat het rustig oogt */
+	--onthul-curve: cubic-bezier(0.16, 1, 0.3, 1);
+	--onthul-duur: 900ms;
+	--onthul-trede: 80ms;
+
+	/* Maatvoering */
+	--made-maat-inhoud: 1280px;
+	--made-maat-tekstregel: 68ch;
+}
+
+/* Rollen — donker thema (Optie B · Nachtgroen) */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--made-oppervlak: var(--made-nachtgroen);
+		--made-oppervlak-verhoogd: var(--made-nachtgroen-vlak);
+		--made-inhoud: var(--made-krijt);
+		--made-inhoud-zwak: var(--made-mist);
+		--made-inhoud-subtiel: var(--made-nevel);
+		--made-rand: var(--made-nachtgroen-vlak);
+		--made-rand-sterk: var(--made-wad);
+		--made-accent: var(--made-amber);
+		--made-op-accent: var(--made-nachtgroen);
+		--made-link: var(--made-amber-licht);
+		--made-focus: var(--made-amber);
+
+		--made-logo-woord: var(--made-krijt);
+		--made-logo-slash: var(--made-amber-licht);
+		--made-logo-tagline: var(--made-nevel);
+		--made-slash-achter: var(--made-nachtgroen-vlak);
+		--made-hero-label: var(--made-inhoud-subtiel);
+
+		/* Op nachtgroen moet het uitgelichte vlak een slag dieper. */
+		--made-uitgelicht-vlak: var(--made-nachtgroen-diep);
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
+	font-family: var(--font-tekst);
+	font-size: 17px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--made-inhoud);
+}
+
+a:hover {
+	color: var(--made-link);
+}
+
+:focus-visible {
+	outline: 2px solid var(--made-focus);
+	outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------- Logo */
+
+.made-logo {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--made-space-2);
+}
+
+.made-logo svg {
+	display: block;
+}
+
+.made-logo__tagline {
+	font-family: var(--font-kop);
+	font-weight: 600;
+	letter-spacing: 0.44em;
+	line-height: 1;
+	padding-left: 0.44em;
+	color: var(--made-logo-tagline);
+}
+
+/* --------------------------------------------------------------- Knop */
+
+.made-knop {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 1;
+	border-radius: var(--made-radius-s);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	text-decoration: none;
+	transition:
+		background-color 120ms ease,
+		color 120ms ease,
+		border-color 120ms ease;
+}
+
+.made-knop:focus-visible {
+	outline: 2px solid var(--made-focus);
+	outline-offset: 2px;
+}
+
+.made-knop--primair {
+	background: var(--made-accent);
+	color: var(--made-op-accent);
+	border: none;
+	padding: 12px 22px;
+}
+
+.made-knop--primair:hover {
+	background: var(--made-amber-donker);
+	color: var(--made-krijt);
+}
+
+.made-knop--secundair {
+	background: transparent;
+	color: var(--made-inhoud);
+	border: 2px solid currentColor;
+	padding: 10px 20px;
+}
+
+.made-knop--secundair:hover {
+	background: var(--made-accent);
+	color: var(--made-op-accent);
+	border-color: var(--made-accent);
+}
+
+.made-knop--link {
+	font-family: var(--font-tekst);
+	font-weight: 600;
+	background: none;
+	border: none;
+	border-bottom: 2px solid var(--made-accent);
+	border-radius: 0;
+	color: var(--made-link);
+	padding: 0 0 2px;
+	min-height: 0;
+}
+
+.made-knop--link:hover {
+	color: var(--made-inhoud);
+}
+
+/* -------------------------------------------------------------- Kaart */
+
+.made-kaart {
+	background: var(--made-oppervlak);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-m);
+	padding: var(--made-space-6);
+}
+
+.made-kaart__accent {
+	width: 38px;
+	height: 4px;
+	background: var(--made-accent);
+	border-radius: 2px;
+	margin-bottom: var(--made-space-4);
+}
+
+.made-kaart__titel {
+	margin: 0 0 var(--made-space-2);
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 19px;
+	line-height: 1.25;
+}
+
+.made-kaart__tekst {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.55;
+	color: var(--made-inhoud-zwak);
+}
+
+/* ------------------------------------------------------ Formulierveld */
+
+.made-veld {
+	display: flex;
+	flex-direction: column;
+}
+
+.made-veld__label {
+	margin-bottom: 5px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--made-inhoud);
+}
+
+.made-veld__invoer {
+	width: 100%;
+	padding: 11px 14px;
+	background: var(--made-oppervlak);
+	border: 1.5px solid var(--made-rand);
+	border-radius: var(--made-radius-s);
+	font-family: inherit;
+	font-size: 14px;
+	color: var(--made-inhoud);
+}
+
+.made-veld__invoer::placeholder {
+	color: var(--made-inhoud-subtiel);
+}
+
+/* De rand wordt zwaarder bij focus; de outline uit :focus-visible blijft
+   staan, zodat toetsenbordgebruik zichtbaar blijft. */
+.made-veld__invoer:focus {
+	padding: 10.5px 14px;
+	border: 2px solid var(--made-accent);
+}
+
+/* ------------------------------------------------ Strooklabel en -kop */
+
+/* Het kapitalenlabel boven een kop; komt in bijna elke strook terug. */
+.strook-label {
+	display: flex;
+	align-items: center;
+	gap: var(--made-space-3);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+/* Het schuine streepje voor het label — dezelfde hoek als de slash. */
+.strook-label__streep {
+	display: block;
+	width: 34px;
+	height: 4px;
+	flex-shrink: 0;
+	background: var(--made-accent);
+	border-radius: 2px;
+	transform: skewX(-20deg);
+}
+
+.strook-label__scheiding {
+	color: var(--made-link);
+}
+
+/* Kop van een strook met kaarten: links de titel, rechts een introzin. */
+.strook-kop {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: clamp(24px, 4.5vw, 64px);
+}
+
+.strook-kop__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-5);
+	width: 560px;
+	max-width: 100%;
+}
+
+.strook-kop__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+	text-wrap: pretty;
+}
+
+.strook-kop[data-formaat='groot'] .strook-kop__titel {
+	font-weight: 700;
+	font-size: clamp(28px, 3.4vw, 36px);
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+}
+
+.strook-kop__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.strook-kop__intro {
+	margin: 0;
+	max-width: 520px;
+	font-size: 17px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+	.strook-kop {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+/* --------------------------------------------------------------- Hero */
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	min-height: 760px;
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
+	overflow: hidden;
+}
+
+.hero__binnen {
+	width: 100%;
+	max-width: var(--made-maat-inhoud);
+	margin: 0 auto;
+	padding-inline: clamp(20px, 5.5vw, 80px);
+}
+
+.hero__nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--made-space-6);
+	flex-wrap: wrap;
+	padding-top: 28px;
+}
+
+.hero__logo {
+	display: block;
+	padding: var(--made-space-2) 0;
+}
+
+.hero__menu {
+	display: flex;
+	align-items: center;
+	gap: clamp(18px, 2.4vw, 34px);
+}
+
+.made-navlink {
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 20px;
+	text-decoration: none;
+	padding: 12px 2px;
+}
+
+.hero__strook {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: clamp(32px, 4.5vw, 64px);
+	padding-bottom: 56px;
+}
+
+.hero__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-7);
+	width: 640px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.hero__label {
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-hero-label);
+}
+
+.hero__label-scheiding {
+	color: var(--made-link);
+}
+
+.hero__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(32px, 4.6vw, 48px);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-wrap: pretty;
+}
+
+.hero__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.hero__intro {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.6;
+	max-width: 560px;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.hero__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+	padding-top: var(--made-space-2);
+}
+
+.hero__beeld {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-grow: 1;
+}
+
+.hero__slash {
+	height: min(var(--hero-slash-hoogte, 480px), 46vw);
+	width: auto;
+	display: block;
+}
+
+.hero__slash--achter path {
+	stroke: var(--made-slash-achter);
+}
+
+.hero__slash--voor {
+	margin-left: -96px;
+	margin-top: 72px;
+}
+
+.hero__slash--voor path {
+	stroke: var(--made-accent);
+}
+
+/* De tweede beeldkant: een nachtgroen vlak waar de slash uit loopt. De maten
+   zijn verhoudingen van het vlak (560 × 500 in het ontwerp), zodat het geheel
+   meeschaalt met de kolom. */
+.hero__beeldvlak {
+	position: relative;
+	width: 560px;
+	max-width: 100%;
+	aspect-ratio: 28 / 25;
+	flex-shrink: 0;
+	overflow: hidden;
+	background: var(--made-nachtgroen);
+	border-radius: var(--made-radius-l);
+}
+
+@media (prefers-color-scheme: dark) {
+	.hero__beeldvlak {
+		background: var(--made-nachtgroen-diep);
+	}
+}
+
+.hero__vlakslash {
+	position: absolute;
+	right: -12.5%;
+	top: -8%;
+	height: 124%;
+	width: auto;
+	display: block;
+}
+
+.hero__vlakslash path {
+	stroke: var(--made-amber);
+}
+
+.hero__vlaklabel {
+	position: absolute;
+	left: var(--made-space-8);
+	top: var(--made-space-8);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-nevel);
+}
+
+.hero__vlaklabel-scheiding {
+	color: var(--made-amber-licht);
+}
+
+.hero__vlakmerk {
+	position: absolute;
+	left: var(--made-space-8);
+	bottom: var(--made-space-8);
+	display: block;
+}
+
+@media (max-width: 900px) {
+	.hero {
+		min-height: 0;
+	}
+
+	.hero__strook {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-block: var(--made-space-9) 56px;
+	}
+
+	.hero__beeld {
+		display: none;
+	}
+}
+
+/* ----------------------------------------------------------- Over ons */
+
+.over-ons {
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
+}
+
+.over-ons__binnen {
+	width: 100%;
+	max-width: var(--made-maat-inhoud);
+	margin: 0 auto;
+	padding-inline: clamp(20px, 5.5vw, 80px);
+	padding-block: clamp(56px, 7vw, 80px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+.over-ons__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-6);
+	width: 520px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.over-ons__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(28px, 3.4vw, 36px);
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+	text-wrap: pretty;
+}
+
+.over-ons__intro,
+.over-ons__alinea {
+	margin: 0;
+	line-height: 1.6;
+	max-width: var(--made-maat-tekstregel);
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.over-ons__intro {
+	font-size: 18px;
+}
+
+.over-ons__alinea {
+	font-size: 17px;
+}
+
+.over-ons__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+	padding-top: var(--made-space-1);
+}
+
+.over-ons__team {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: var(--made-space-5);
+	flex-grow: 1;
+	min-width: 0;
+}
+
+/* ------------------------------------------------------- Teamkaart */
+
+.team-kaart {
+	--onthul-afstand: 26px;
+	display: flex;
+	flex-direction: column;
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-m);
+	overflow: hidden;
+}
+
+.team-kaart__portret {
+	position: relative;
+	aspect-ratio: 6 / 5;
+	display: grid;
+	place-items: center;
+	border-bottom: 1px solid var(--made-rand);
+	background: var(--made-oppervlak);
+}
+
+.team-kaart__foto {
+	object-fit: cover;
+}
+
+.team-kaart__plaatshouder {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 56px;
+	line-height: 1;
+	color: var(--made-inhoud-subtiel);
+}
+
+.team-kaart__tekst {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-2);
+	padding: var(--made-space-6);
+}
+
+.team-kaart__rol {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.team-kaart__rol-scheiding {
+	color: var(--made-link);
+}
+
+.team-kaart__naam {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 19px;
+	line-height: 1.25;
+}
+
+.team-kaart__omschrijving {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.55;
+	color: var(--made-inhoud-zwak);
+}
+
+@media (max-width: 900px) {
+	.over-ons__binnen {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.over-ons__team {
+		width: 100%;
+	}
+}
+
+/* ------------------------------------------------------- Stroken */
+
+/* Alle stroken delen dezelfde inhoudsbreedte en binnenmarges. */
+.tekst-strook__binnen,
+.tekst-beeld__binnen,
+.diensten__binnen,
+.pakketten__binnen,
+.contact__binnen,
+.profielen__binnen,
+.stappen__binnen,
+.werk__binnen,
+.stellingen__binnen,
+.cta__binnen {
+	width: 100%;
+	max-width: var(--made-maat-inhoud);
+	margin: 0 auto;
+	padding-inline: clamp(20px, 5.5vw, 80px);
+	padding-block: clamp(56px, 7vw, 80px);
+}
+
+.tekst-strook,
+.tekst-beeld,
+.diensten,
+.pakketten,
+.contact,
+.profielen,
+.stappen,
+.werk,
+.stellingen,
+.cta {
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
+}
+
+/* Het vlak waarop een strook staat. De modifier zet alleen de rollen om, dus
+   de markup eronder blijft gelijk en het donkere thema komt vanzelf mee. */
+.strook--verhoogd {
+	--made-oppervlak: var(--made-wit);
+	--made-oppervlak-verhoogd: var(--made-krijt);
+	border-block: 1px solid var(--made-rand);
+}
+
+.strook--nachtgroen,
+.voet {
+	--made-oppervlak: var(--made-nachtgroen);
+	--made-oppervlak-verhoogd: var(--made-nachtgroen-vlak);
+	--made-inhoud: var(--made-krijt);
+	--made-inhoud-zwak: var(--made-mist);
+	--made-inhoud-subtiel: var(--made-nevel);
+	--made-rand: var(--made-nachtgroen-vlak);
+	--made-rand-sterk: var(--made-wad);
+	--made-link: var(--made-amber-licht);
+	--made-uitgelicht-vlak: var(--made-nachtgroen-vlak);
+	--made-logo-woord: var(--made-krijt);
+	--made-logo-slash: var(--made-amber-licht);
+	--made-logo-tagline: var(--made-nevel);
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
+}
+
+/* Op het donkere thema moeten deze vlakken een slag verschuiven, anders
+   vallen ze samen met de pagina eromheen. */
+@media (prefers-color-scheme: dark) {
+	.strook--verhoogd {
+		--made-oppervlak: var(--made-nachtgroen-vlak);
+		--made-oppervlak-verhoogd: var(--made-nachtgroen);
+	}
+
+	.strook--nachtgroen {
+		--made-oppervlak: var(--made-nachtgroen-diep);
+		--made-uitgelicht-vlak: var(--made-nachtgroen);
+	}
+}
+
+/* ------------------------------------------------------- Loopband */
+
+/* Een smalle band met steekwoorden. De rij staat er twee keer in en het spoor
+   schuift precies de halve breedte op, zodat de lus naadloos is. */
+.loopband {
+	--loopband-duur: 40s;
+	overflow: hidden;
+	background: var(--made-nachtgroen);
+	color: var(--made-krijt);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+	.loopband {
+		background: var(--made-nachtgroen-diep);
+	}
+}
+
+.loopband__spoor {
+	display: flex;
+	width: max-content;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.loopband__spoor {
+		animation: loopband-schuiven var(--loopband-duur) linear infinite;
+	}
+}
+
+@keyframes loopband-schuiven {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.loopband__rij {
+	display: flex;
+	align-items: center;
+	gap: var(--made-space-7);
+	height: 60px;
+	padding-right: var(--made-space-7);
+}
+
+.loopband__item {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--made-space-7);
+}
+
+.loopband__scheiding {
+	color: var(--made-amber-licht);
+}
+
+/* ------------------------------------------------------ Profielen */
+
+.profielen__binnen {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-9);
+}
+
+.profielen__kaarten {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: var(--made-space-8);
+	align-items: start;
+}
+
+.profiel {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-6);
+}
+
+.profiel__portret {
+	position: relative;
+	aspect-ratio: 8 / 5;
+	display: grid;
+	place-items: center;
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-l);
+	overflow: hidden;
+}
+
+.profiel__foto {
+	object-fit: cover;
+}
+
+.profiel__plaatshouder {
+	padding: var(--made-space-6);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--made-inhoud-zwak);
+}
+
+/* De twee letters uit het woordmerk, op het portret. */
+.profiel__badge {
+	position: absolute;
+	left: var(--made-space-6);
+	bottom: var(--made-space-6);
+	display: grid;
+	place-items: center;
+	width: 64px;
+	height: 64px;
+	background: var(--made-nachtgroen);
+	color: var(--made-krijt);
+	border-radius: 18px;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 24px;
+	letter-spacing: -0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+	.profiel__badge {
+		background: var(--made-nachtgroen-diep);
+	}
+}
+
+.profiel__tekst {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-1);
+}
+
+.profiel__label {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.profiel__scheiding {
+	color: var(--made-link);
+}
+
+.profiel__naam {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+}
+
+.profiel__functie {
+	font-size: 15px;
+	line-height: 1.55;
+	color: var(--made-inhoud-zwak);
+}
+
+.profiel__alinea {
+	margin: 0;
+	font-size: 17px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+/* -------------------------------------------------------- Stappen */
+
+.stappen__binnen {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-9);
+}
+
+/* De nummers komen uit deze counter, niet uit de inhoud. */
+.stappen__lijst {
+	counter-reset: stap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: var(--made-space-5);
+}
+
+.stap {
+	counter-increment: stap;
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-4);
+	padding: var(--made-space-7);
+	background: var(--made-oppervlak-verhoogd);
+	border-radius: var(--made-radius-m);
+}
+
+.stap__nummer {
+	display: flex;
+	gap: var(--made-space-2);
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 1;
+	color: var(--made-link);
+}
+
+.stap__cijfer::before {
+	content: counter(stap, decimal-leading-zero);
+}
+
+.stap__scheiding {
+	color: var(--made-inhoud-subtiel);
+}
+
+.stap__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 1.3;
+}
+
+.stap__tekst {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.55;
+	color: var(--made-inhoud-zwak);
+}
+
+/* ----------------------------------------------------------- Werk */
+
+.werk__binnen {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-9);
+}
+
+.werk__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+}
+
+/* Twaalf kolommen, zodat een case zelf kan zeggen hoe breed hij staat. */
+.werk__cases {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: var(--made-space-5);
+}
+
+.werk-case {
+	grid-column: span 12;
+	display: flex;
+	flex-direction: column;
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-l);
+	overflow: hidden;
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (min-width: 901px) {
+	.werk-case--smal {
+		grid-column: span 5;
+	}
+
+	.werk-case--normaal {
+		grid-column: span 6;
+	}
+
+	.werk-case--breed {
+		grid-column: span 7;
+	}
+}
+
+/* Een klikbare kaart mag niet meekleuren met de linkkleur van de pagina. */
+.werk-case--link:hover {
+	color: inherit;
+	border-color: var(--made-rand-sterk);
+}
+
+.werk-case__beeld {
+	position: relative;
+	aspect-ratio: 8 / 5;
+	display: grid;
+	place-items: center;
+	background: var(--made-oppervlak);
+	border-bottom: 1px solid var(--made-rand);
+}
+
+.werk-case__foto {
+	object-fit: cover;
+}
+
+.werk-case__plaatshouder {
+	padding: var(--made-space-6);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--made-inhoud-zwak);
+}
+
+.werk-case__tekst {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--made-space-5);
+	padding: var(--made-space-6) var(--made-space-7) var(--made-space-7);
+}
+
+.werk-case__kop {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-1);
+}
+
+.werk-case__label {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.werk-case__scheiding {
+	color: var(--made-link);
+}
+
+.werk-case__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 1.3;
+}
+
+.werk-case__resultaat {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	text-align: right;
+}
+
+.werk-case__getal {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(28px, 3.4vw, 36px);
+	line-height: 1;
+	letter-spacing: -0.015em;
+}
+
+.werk-case__toelichting {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--made-inhoud-zwak);
+}
+
+/* ----------------------------------------------------- Stellingen */
+
+.stellingen__binnen {
+	display: flex;
+	align-items: center;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+.stellingen__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-5);
+	width: 520px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.stellingen__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(28px, 3.4vw, 36px);
+	line-height: 1.15;
+	letter-spacing: -0.015em;
+	text-wrap: pretty;
+}
+
+.stellingen__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.stellingen__intro {
+	margin: 0;
+	font-size: 17px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.stellingen__lijst {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	flex-grow: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.stelling {
+	display: grid;
+	grid-template-columns: 72px 1fr;
+	gap: var(--made-space-7);
+	align-items: baseline;
+	padding: var(--made-space-7) 0;
+	border-top: 1px solid var(--made-rand);
+}
+
+.stelling:last-child {
+	border-bottom: 1px solid var(--made-rand);
+}
+
+/* Het ontwerp zet dit teken in amber; --made-accent haalt op krijt maar
+   2,7:1, dus hier staat de linkkleur. */
+.stelling__slash {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 1;
+	color: var(--made-link);
+}
+
+.stelling__tekst {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-1);
+}
+
+.stelling__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 21px;
+	line-height: 1.3;
+}
+
+.stelling__alinea {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.55;
+	color: var(--made-inhoud-zwak);
+}
+
+@media (max-width: 900px) {
+	.stellingen__binnen {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.stellingen__tekst {
+		width: 100%;
+	}
+
+	.stelling {
+		grid-template-columns: 48px 1fr;
+		gap: var(--made-space-5);
+	}
+}
+
+/* ------------------------------------------------------------ CTA */
+
+.cta__binnen {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+.cta__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-6);
+	width: 620px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.cta__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(32px, 4vw, 48px);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	text-wrap: pretty;
+}
+
+.cta__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.cta__alinea {
+	margin: 0;
+	max-width: 520px;
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.cta__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+	padding-top: var(--made-space-1);
+}
+
+.cta__beeld {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-grow: 1;
+	min-width: 0;
+}
+
+.cta__slash {
+	height: clamp(180px, 22vw, 320px);
+	width: auto;
+	display: block;
+}
+
+.cta__slash--achter path {
+	stroke: var(--made-oppervlak-verhoogd);
+}
+
+.cta__slash--voor {
+	margin-left: -64px;
+	margin-top: 48px;
+}
+
+.cta__slash--voor path {
+	stroke: var(--made-accent);
+}
+
+@media (max-width: 900px) {
+	.cta__binnen {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+/* ----------------------------------------------------------- Voet */
+
+.voet {
+	--made-oppervlak: var(--made-nachtgroen-diep);
+	--made-oppervlak-verhoogd: var(--made-nachtgroen);
+}
+
+.voet__binnen {
+	width: 100%;
+	max-width: var(--made-maat-inhoud);
+	margin: 0 auto;
+	padding-inline: clamp(20px, 5.5vw, 80px);
+	padding-block: clamp(46px, 5vw, 64px);
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-9);
+}
+
+.voet__boven {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+.voet__merk {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-5);
+	width: 360px;
+	max-width: 100%;
+}
+
+.voet__logo {
+	display: inline-block;
+}
+
+.voet__tekst {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+}
+
+.voet__kolommen {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: var(--made-space-9);
+	flex-grow: 1;
+	min-width: 0;
+	max-width: 720px;
+}
+
+.voet-kolom {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-3);
+}
+
+.voet-kolom__titel {
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+}
+
+.voet-kolom__links {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-3);
+}
+
+.voet-kolom__regel {
+	font-size: 15px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+}
+
+/* In de voet zijn de navigatielinks rustiger dan in de hero. */
+.voet .made-navlink {
+	padding: 0;
+	font-family: var(--font-tekst);
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+}
+
+.voet .made-navlink:hover {
+	color: var(--made-link);
+}
+
+.voet__onder {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--made-space-7);
+	padding-top: var(--made-space-7);
+	border-top: 1px solid var(--made-rand);
+	font-size: 13px;
+	color: var(--made-inhoud-subtiel);
+}
+
+.voet__copyright {
+	margin: 0;
+}
+
+.voet__scheiding {
+	color: var(--made-link);
+}
+
+.voet__onderlinks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--made-space-7);
+}
+
+.voet__onderlinks .made-navlink {
+	font-size: 13px;
+}
+
+/* ---------------------------------------------------------- Tekst */
+
+.tekst-strook__binnen {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-6);
+}
+
+.tekst-strook__titel {
+	margin: 0;
+	max-width: var(--made-maat-tekstregel);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+	text-wrap: pretty;
+}
+
+.tekst-strook__intro,
+.tekst-strook__alinea {
+	margin: 0;
+	max-width: var(--made-maat-tekstregel);
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.tekst-strook__intro {
+	font-size: 18px;
+}
+
+.tekst-strook__alinea {
+	font-size: 17px;
+}
+
+.tekst-strook__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+	padding-top: var(--made-space-1);
+}
+
+/* -------------------------------------------------- Tekst en beeld */
+
+.tekst-beeld__binnen {
+	display: flex;
+	align-items: center;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+/* Met het beeld links draait alleen de volgorde om; de markup blijft
+   gelijk, zodat de tekst in de leesvolgorde vooropstaat. */
+.tekst-beeld--beeld-links .tekst-beeld__binnen {
+	flex-direction: row-reverse;
+}
+
+.tekst-beeld__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-6);
+	width: 560px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.tekst-beeld__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+	text-wrap: pretty;
+}
+
+.tekst-beeld__alinea {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.tekst-beeld__acties {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+	padding-top: var(--made-space-1);
+}
+
+.tekst-beeld__beeld {
+	position: relative;
+	flex-grow: 1;
+	min-width: 0;
+	aspect-ratio: 41 / 30;
+	display: grid;
+	place-items: center;
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-l);
+	overflow: hidden;
+}
+
+.tekst-beeld__foto {
+	object-fit: cover;
+}
+
+.tekst-beeld__plaatshouder {
+	padding: var(--made-space-6);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--made-inhoud-zwak);
+}
+
+@media (max-width: 900px) {
+	.tekst-beeld__binnen,
+	.tekst-beeld--beeld-links .tekst-beeld__binnen {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.tekst-beeld__tekst {
+		width: 100%;
+	}
+}
+
+/* ------------------------------------------------------- Diensten */
+
+.diensten__binnen {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-8);
+}
+
+.diensten__groepen {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: var(--made-space-8);
+	align-items: start;
+}
+
+.dienst-groep {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-5);
+	padding: var(--made-space-7);
+	background: var(--made-oppervlak-verhoogd);
+	border-radius: var(--made-radius-l);
+}
+
+.dienst-groep__label {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.dienst-groep__scheiding {
+	color: var(--made-link);
+}
+
+.dienst-groep__kaarten {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--made-space-5);
+}
+
+/* ------------------------------------------------------ Pakketten */
+
+.pakketten__binnen {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-9);
+}
+
+.pakketten__kaarten {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: var(--made-space-5);
+	align-items: stretch;
+}
+
+.pakket {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-6);
+	padding: var(--made-space-8);
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-l);
+}
+
+/* Het uitgelichte pakket staat op nachtgroen en steekt iets uit. */
+.pakket--uitgelicht {
+	margin-block: -16px;
+	padding-block: calc(var(--made-space-8) + 16px);
+	background: var(--made-uitgelicht-vlak);
+	border-color: transparent;
+	color: var(--made-uitgelicht-inhoud);
+}
+
+.pakket__badge {
+	align-self: flex-start;
+	padding: 7px 15px;
+	background: var(--made-accent);
+	color: var(--made-op-accent);
+	border-radius: var(--made-radius-pil);
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 1;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.pakket__kop {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-3);
+}
+
+.pakket__label {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.pakket--uitgelicht .pakket__label {
+	color: var(--made-uitgelicht-subtiel);
+}
+
+.pakket__scheiding {
+	color: var(--made-link);
+}
+
+.pakket--uitgelicht .pakket__scheiding {
+	color: var(--made-uitgelicht-nadruk);
+}
+
+.pakket__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+}
+
+.pakket__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.pakket--uitgelicht .pakket__titel em {
+	color: var(--made-uitgelicht-nadruk);
+}
+
+.pakket__prijs {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-1);
+}
+
+.pakket__bedrag {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(40px, 4vw, 48px);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+.pakket--uitgelicht .pakket__bedrag {
+	font-size: clamp(44px, 4.6vw, 56px);
+}
+
+.pakket__toelichting {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--made-inhoud-zwak);
+}
+
+.pakket--uitgelicht .pakket__toelichting {
+	color: var(--made-uitgelicht-zwak);
+}
+
+.pakket__kenmerken {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-3);
+	font-size: 15px;
+	line-height: 1.55;
+}
+
+.pakket--uitgelicht .pakket__kenmerken {
+	color: var(--made-uitgelicht-zwak);
+}
+
+.pakket__kenmerk {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--made-space-3);
+}
+
+.pakket__vink {
+	width: 17px;
+	height: 17px;
+	flex-shrink: 0;
+	margin-top: 3px;
+	stroke: var(--made-link);
+}
+
+.pakket--uitgelicht .pakket__vink {
+	stroke: var(--made-uitgelicht-nadruk);
+}
+
+.pakket__actie {
+	margin-top: auto;
+	padding-top: var(--made-space-1);
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--made-space-3);
+}
+
+/* Onder 900px staan de kaarten onder elkaar; dan hoort de uitgelichte
+   kaart niet meer uit te steken. */
+@media (max-width: 900px) {
+	.pakket--uitgelicht {
+		margin-block: 0;
+		padding-block: var(--made-space-8);
+	}
+}
+
+/* -------------------------------------------------------- Contact */
+
+.contact__binnen {
+	display: flex;
+	align-items: center;
+	gap: clamp(32px, 4.5vw, 64px);
+}
+
+.contact__tekst {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--made-space-6);
+	width: 540px;
+	max-width: 100%;
+	flex-shrink: 0;
+}
+
+.contact__titel {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+	text-wrap: pretty;
+}
+
+.contact__titel em {
+	font-style: normal;
+	color: var(--made-link);
+}
+
+.contact__intro {
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+.contact__personen {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--made-space-5);
+	width: 100%;
+}
+
+.contact__adres {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--made-space-2);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.contact__adres-label {
+	font-family: var(--font-kop);
+	font-weight: 600;
+}
+
+.contact__adres-tekst {
+	color: var(--made-inhoud-zwak);
+}
+
+/* ---------------------------------------------------- Contactkaart */
+
+.contact-kaart {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-1);
+	padding: var(--made-space-5);
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-m);
+}
+
+.contact-kaart__label {
+	margin-bottom: var(--made-space-1);
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.contact-kaart__scheiding {
+	color: var(--made-link);
+}
+
+.contact-kaart__naam {
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: 19px;
+	line-height: 1.25;
+}
+
+.contact-kaart__rol {
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--made-inhoud-zwak);
+}
+
+.contact-kaart__mail {
+	margin-top: var(--made-space-1);
+	font-size: 15px;
+	color: var(--made-link);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.contact-kaart__telefoon {
+	font-size: 15px;
+	text-decoration: none;
+}
+
+/* ------------------------------------------------ Contactformulier */
+
+.contact__formulier {
+	flex-grow: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-5);
+	padding: var(--made-space-7);
+	background: var(--made-oppervlak-verhoogd);
+	border: 1px solid var(--made-rand);
+	border-radius: var(--made-radius-m);
+}
+
+.contact__keuze {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.contact__keuze-kop {
+	padding: 0;
+	margin-bottom: var(--made-space-3);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.contact__keuze-rij,
+.contact__rij {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: var(--made-space-3);
+}
+
+.contact__rij {
+	gap: var(--made-space-5);
+}
+
+.contact__optie {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--made-space-3);
+	padding: 12px 14px;
+	background: var(--made-oppervlak);
+	border: 1.5px solid var(--made-rand-sterk);
+	border-radius: var(--made-radius-s);
+	cursor: pointer;
+}
+
+.contact__radio {
+	width: 16px;
+	height: 16px;
+	margin: 2px 0 0;
+	flex-shrink: 0;
+	accent-color: var(--made-link);
+}
+
+.contact__optie-tekst {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.contact__optie-naam {
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 1.3;
+}
+
+.contact__optie-rol {
+	font-size: 13px;
+	line-height: 1.4;
+	color: var(--made-inhoud-zwak);
+}
+
+.contact__bericht {
+	min-height: 120px;
+	resize: vertical;
+	line-height: 1.5;
+}
+
+.contact__voet {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--made-space-5);
+}
+
+.contact__privacy {
+	margin: 0;
+	flex: 1 1 220px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--made-inhoud-zwak);
+}
+
+@media (max-width: 900px) {
+	.contact__binnen {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.contact__tekst {
+		width: 100%;
+	}
+}
+
+/* --------------------------------------------------- Onthullen bij scroll */
+
+/* Elementen met data-onthul komen rustig omhoog zodra ze in beeld scrollen.
+   Onthullen.jsx zet alleen het attribuut en de --onthul-index; de beweging
+   zit hier.
+
+   De begintoestand staat bewust achter `scripting: enabled`: zonder
+   JavaScript zet niemand het attribuut om, en dan hoort alles gewoon zichtbaar
+   te zijn. Bij `prefers-reduced-motion: reduce` geldt het blok evenmin. */
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+	[data-onthul] {
+		opacity: 0;
+		transform: translateY(var(--onthul-afstand, 20px));
+		transition-property: opacity, transform;
+		transition-duration: var(--onthul-duur);
+		transition-timing-function: var(--onthul-curve);
+		/* De vertraging moet hier staan en niet als custom property op :root:
+		   daar zou de calc al uitgerekend worden, zonder --onthul-index. */
+		transition-delay: calc(var(--onthul-index, 0) * var(--onthul-trede));
+	}
+
+	[data-onthul='zichtbaar'] {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* -------------------------------------------------------------- Intro */
+
+/* De intro-animatie (IntroAnimatie.jsx) ligt als vaste laag over de pagina.
+   Kleuren lopen via de logo-tokens, dus het thema volgt vanzelf. */
+
+.made-intro {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.made-intro[hidden] {
+	display: none;
+}
+
+.made-intro__achtergrond {
+	position: absolute;
+	inset: 0;
+	background: var(--made-oppervlak);
+}
+
+/* Het toneel is 100 × 100 in het midden; alles wordt eromheen getekend. */
+.made-intro__toneel,
+.made-intro__svg {
+	position: relative;
+	display: block;
+	width: 100px;
+	height: 100px;
+}
+
+.made-intro__svg {
+	overflow: visible;
+}
+
+.made-intro__woord {
+	will-change: transform;
+}
+
+.made-intro__letter path,
+.made-intro__slash {
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.made-intro__letter path {
+	stroke: var(--made-logo-woord);
+}
+
+.made-intro__slash {
+	stroke: var(--made-logo-slash);
+}
+
+.made-intro__tagline {
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 22.8px;
+	letter-spacing: 10px;
+	fill: var(--made-logo-tagline);
+}
+
+.made-intro__overslaan {
+	position: absolute;
+	bottom: max(28px, env(safe-area-inset-bottom));
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: var(--font-kop);
+	font-weight: 600;
+	font-size: 13px;
+	line-height: 1;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+	background: none;
+	border: 0;
+	border-radius: var(--made-radius-s);
+	padding: 14px 18px;
+	cursor: pointer;
+	opacity: 0;
+}
+
+.made-intro__overslaan:hover {
+	color: var(--made-link);
+}
+
+/* Zolang de intro speelt scrolt de pagina eronder niet. */
+body.made-intro-actief {
+	overflow: hidden;
+}

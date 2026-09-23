@@ -1,0 +1,2411 @@
+[
+  {
+    "name": "button",
+    "display_name": "Knop",
+    "description": null,
+    "created_at": "2026-09-17T20:06:42.284Z",
+    "updated_at": "2026-09-17T20:06:42.284Z",
+    "id": 221126665364185,
+    "schema": {
+      "label": {
+        "type": "text",
+        "pos": 0,
+        "display_name": "Tekst",
+        "required": true,
+        "id": "xzLA3tpEQZOcEj6NpG3hcA"
+      },
+      "link": {
+        "type": "multilink",
+        "pos": 1,
+        "display_name": "Link",
+        "description": "Leeg laten geeft een knop zonder link.",
+        "id": "YfsF32JmR0GweGe5k-oZ9Q"
+      },
+      "variant": {
+        "type": "option",
+        "pos": 2,
+        "display_name": "Variant",
+        "use_uuid": false,
+        "default_value": "primair",
+        "options": [
+          {
+            "name": "Primair (amber vlak)",
+            "value": "primair"
+          },
+          {
+            "name": "Secundair (omlijnd)",
+            "value": "secundair"
+          },
+          {
+            "name": "Tekstlink",
+            "value": "link"
+          }
+        ],
+        "id": "0cm5AAkXQ-aA55XstV_azw"
+      }
+    },
+    "image": null,
+    "preview_field": "label",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Knop",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "feature",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-09-17T18:43:42.584Z",
+    "updated_at": "2026-09-17T18:43:42.584Z",
+    "id": 221106268508607,
+    "schema": {
+      "name": {
+        "type": "text",
+        "id": "QRBnOFDJRcS_KdifPng-mg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "feature",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "grid",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-09-17T18:43:42.572Z",
+    "updated_at": "2026-09-17T18:43:42.572Z",
+    "id": 221106268459454,
+    "schema": {
+      "columns": {
+        "type": "bloks",
+        "id": "8L7RwUu8RgKgg0T4lc5gsQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "grid",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "hero",
+    "display_name": "Hero",
+    "description": null,
+    "created_at": "2026-09-17T20:06:43.047Z",
+    "updated_at": "2026-09-17T20:06:43.047Z",
+    "id": 221126668485338,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "pos": 0,
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "buttons"
+        ],
+        "id": "Jxjt"
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijt automatisch de accentkleur.",
+        "default_value": "Marketing / Development",
+        "id": "RUvgAaU3QmihNZ5Pqir-jw"
+      },
+      "headline": {
+        "type": "text",
+        "pos": 2,
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 120,
+        "default_value": "Wij bouwen het én zorgen dat het gevonden wordt",
+        "id": "r-WH1bN1S7mhL-U1GKDfnw"
+      },
+      "headline_accent": {
+        "type": "text",
+        "pos": 3,
+        "display_name": "Accentwoord in de kop",
+        "description": "Dit woord uit de kop krijgt de amberkleur. Leeg laten = geen accent.",
+        "default_value": "gevonden",
+        "id": "uX3GlyC9Rtei8tzylHGTdQ"
+      },
+      "intro": {
+        "type": "textarea",
+        "pos": 4,
+        "display_name": "Introtekst",
+        "max_length": 320,
+        "default_value": "MADE is een fullstack developer en een online marketeer met SEO als vak. Geen bureau, geen accountmanager ertussen: je spreekt altijd degene die het maakt.",
+        "id": "ei78ENKnRPeX90gCWGOHqA"
+      },
+      "buttons": {
+        "type": "bloks",
+        "pos": 5,
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 3,
+        "id": "gqtUY7aWQuO14yq7YIqfQA"
+      },
+      "tab-navigatie": {
+        "type": "tab",
+        "pos": 6,
+        "display_name": "Navigatie",
+        "keys": [
+          "show_nav",
+          "nav_items",
+          "logo_width"
+        ],
+        "id": "evIK0uA"
+      },
+      "show_nav": {
+        "type": "boolean",
+        "pos": 7,
+        "display_name": "Navigatie tonen",
+        "default_value": true,
+        "id": "Q9vZPhTJRyeqkIAHryqwHA"
+      },
+      "nav_items": {
+        "type": "bloks",
+        "pos": 8,
+        "display_name": "Menu-items",
+        "restrict_components": true,
+        "component_whitelist": [
+          "nav_link",
+          "button"
+        ],
+        "id": "q8zRAdaJQOWVpNhPKrRWzw"
+      },
+      "logo_width": {
+        "type": "number",
+        "pos": 9,
+        "display_name": "Logobreedte (px)",
+        "description": "Niet onder 120 volgens het huisstijlhandboek.",
+        "default_value": "150",
+        "id": "r5O8pI2cRjCsVaPdmfeYPg"
+      },
+      "tab-beeld": {
+        "type": "tab",
+        "pos": 10,
+        "display_name": "Beeld",
+        "keys": [
+          "beeld_variant",
+          "slash_size",
+          "beeld_label",
+          "toon_beeldmerk"
+        ],
+        "id": "vuXQ"
+      },
+      "beeld_variant": {
+        "type": "option",
+        "display_name": "Beeldkant",
+        "description": "Twee losse slashes, of een nachtgroen vlak met de slash en het beeldmerk erin.",
+        "default_value": "slashes",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Twee slashes",
+            "value": "slashes"
+          },
+          {
+            "name": "Nachtgroen vlak",
+            "value": "vlak"
+          }
+        ],
+        "pos": 11
+      },
+      "slash_size": {
+        "type": "number",
+        "pos": 12,
+        "display_name": "Hoogte van de slashes (px)",
+        "description": "Alleen bij de twee losse slashes.",
+        "default_value": "480",
+        "id": "BCunH_OTSeKmLTsSaHs3nA"
+      },
+      "beeld_label": {
+        "type": "text",
+        "display_name": "Label in het vlak",
+        "description": "Alleen bij het nachtgroen vlak. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Twee mensen / Eén plan",
+        "pos": 13
+      },
+      "toon_beeldmerk": {
+        "type": "boolean",
+        "display_name": "Beeldmerk in het vlak",
+        "description": "Alleen bij het nachtgroen vlak.",
+        "default_value": true,
+        "pos": 14
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Hero",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "nav_link",
+    "display_name": "Menu-item",
+    "description": null,
+    "created_at": "2026-09-17T20:06:42.280Z",
+    "updated_at": "2026-09-17T20:06:42.280Z",
+    "id": 221126665343704,
+    "schema": {
+      "label": {
+        "type": "text",
+        "pos": 0,
+        "display_name": "Tekst",
+        "required": true,
+        "id": "4klwB7NVSeCo_Gl9Mue5pw"
+      },
+      "link": {
+        "type": "multilink",
+        "pos": 1,
+        "display_name": "Link",
+        "allow_anchor": true,
+        "id": "16YQmWE-T8KsRAjBpnovkw"
+      }
+    },
+    "image": null,
+    "preview_field": "label",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Menu-item",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "over_ons",
+    "display_name": "Over ons",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "pos": 0,
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "intro",
+          "tekst",
+          "buttons"
+        ]
+      },
+      "label": {
+        "type": "text",
+        "pos": 1,
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Over ons"
+      },
+      "headline": {
+        "type": "text",
+        "pos": 2,
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Wij zijn met z'n tweeën. Je spreekt altijd degene die het maakt."
+      },
+      "intro": {
+        "type": "textarea",
+        "pos": 3,
+        "display_name": "Introtekst",
+        "max_length": 400,
+        "default_value": "MADE is een vof van een fullstack webdeveloper en een online marketeer met SEO als specialisme. Geen bureau met accountmanagers ertussen: wie de site bouwt en wie hem vindbaar maakt, zitten ook bij jou aan tafel."
+      },
+      "tekst": {
+        "type": "textarea",
+        "pos": 4,
+        "display_name": "Tweede alinea",
+        "description": "Optioneel. Leeg laten geeft één alinea.",
+        "max_length": 400,
+        "default_value": "Dat betekent korte lijnen, een eerlijk antwoord als iets geen goed idee is, en één plan waarin bouwen en gevonden worden vanaf dag één samen optrekken."
+      },
+      "buttons": {
+        "type": "bloks",
+        "pos": 5,
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 2
+      },
+      "tab-team": {
+        "type": "tab",
+        "pos": 6,
+        "display_name": "Team",
+        "keys": [
+          "team"
+        ]
+      },
+      "team": {
+        "type": "bloks",
+        "pos": 7,
+        "display_name": "Teamleden",
+        "description": "Twee kaarten passen naast elkaar; meer schuift door naar de volgende rij.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "team_lid"
+        ],
+        "maximum": 4
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "pos": 8,
+        "display_name": "Techniek",
+        "keys": [
+          "anchor"
+        ]
+      },
+      "anchor": {
+        "type": "text",
+        "pos": 9,
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "default_value": "over-ons"
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Over ons",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-09-17T18:43:42.546Z",
+    "updated_at": "2026-09-17T20:24:24.893Z",
+    "id": 221106268348860,
+    "schema": {
+      "page_title": {
+        "type": "text",
+        "pos": 1,
+        "display_name": "Pagina titel",
+        "required": true,
+        "id": "mvFEBOylQRqqjg48CmNiNw"
+      },
+      "page_description": {
+        "type": "textarea",
+        "pos": 2,
+        "id": "i8fNpLDCRxWS_fvGQdOwfw",
+        "display_name": "Pagina omschrijving"
+      },
+      "body": {
+        "type": "bloks",
+        "id": "TSCDFlVCQyeAqhoCYHfE8Q"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "page",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "team_lid",
+    "display_name": "Teamlid",
+    "description": null,
+    "schema": {
+      "foto": {
+        "type": "asset",
+        "pos": 0,
+        "display_name": "Foto",
+        "description": "Portret, staand of vierkant. Zonder foto komt er een plaatshouder met de initiaal.",
+        "filetypes": [
+          "images"
+        ]
+      },
+      "naam": {
+        "type": "text",
+        "pos": 1,
+        "display_name": "Naam",
+        "required": true
+      },
+      "rol_afkorting": {
+        "type": "text",
+        "pos": 2,
+        "display_name": "Afkorting",
+        "description": "De twee letters uit het woordmerk: MA of DE. Leeg laten mag.",
+        "max_length": 4
+      },
+      "rol": {
+        "type": "text",
+        "pos": 3,
+        "display_name": "Rol",
+        "description": "Komt achter de amberkleurige schuine streep te staan."
+      },
+      "omschrijving": {
+        "type": "textarea",
+        "pos": 4,
+        "display_name": "Omschrijving",
+        "max_length": 220
+      }
+    },
+    "image": null,
+    "preview_field": "naam",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Teamlid",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "teaser",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-09-17T18:43:42.559Z",
+    "updated_at": "2026-09-17T18:43:42.559Z",
+    "id": 221106268406205,
+    "schema": {
+      "headline": {
+        "type": "text",
+        "id": "Um-oxUCQTyq-H0MPYIcc6Q"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "teaser",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "tekst",
+    "display_name": "Tekst",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "intro",
+          "tekst",
+          "buttons"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Hoe we werken",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Eerst kijken, dan bouwen.",
+        "pos": 2
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 400,
+        "default_value": "We beginnen niet met een offerte, maar met kijken naar wat je nu hebt: wat werkt, wat niet en waar bezoekers afhaken. Daarna zeggen we wat we zouden doen, wat het kost en hoe lang het duurt. Ook als het antwoord is dat je geen nieuwe site nodig hebt.",
+        "pos": 3
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tweede alinea",
+        "description": "Optioneel. Leeg laten geeft één alinea.",
+        "max_length": 400,
+        "pos": 4
+      },
+      "buttons": {
+        "type": "bloks",
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 2,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 8
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Tekst",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "tekst_beeld",
+    "display_name": "Tekst en beeld",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "tekst",
+          "buttons"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Development",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Gebouwd om lang mee te gaan",
+        "pos": 2
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 400,
+        "default_value": "Een site of webapplicatie die snel is, veilig blijft en die je zelf kunt bijhouden. Geen dichtgetimmerde templates: we bouwen wat jij nodig hebt en laten weg wat je toch niet gebruikt.",
+        "pos": 3
+      },
+      "buttons": {
+        "type": "bloks",
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 1,
+        "pos": 4
+      },
+      "tab-beeld": {
+        "type": "tab",
+        "display_name": "Beeld",
+        "keys": [
+          "beeld",
+          "beeld_positie"
+        ],
+        "pos": 5
+      },
+      "beeld": {
+        "type": "asset",
+        "display_name": "Afbeelding",
+        "description": "Liggend, ongeveer 4:3. Zonder afbeelding blijft het vlak als plaatshouder staan.",
+        "filetypes": [
+          "images"
+        ],
+        "pos": 6
+      },
+      "beeld_positie": {
+        "type": "option",
+        "display_name": "Beeld aan welke kant",
+        "default_value": "rechts",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Rechts van de tekst",
+            "value": "rechts"
+          },
+          {
+            "name": "Links van de tekst",
+            "value": "links"
+          }
+        ],
+        "pos": 7
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 8
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 9
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 10
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Tekst en beeld",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "diensten",
+    "display_name": "Diensten",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "groepen"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Diensten",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Wat we doen",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 300,
+        "default_value": "Twee vakken, één plan. Wat we bouwen, maken we ook vindbaar; wat we vindbaar maken, moet het waard zijn om op te klikken.",
+        "pos": 4
+      },
+      "groepen": {
+        "type": "bloks",
+        "display_name": "Groepen",
+        "description": "Twee groepen passen naast elkaar; meer schuift door naar de volgende rij.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "dienst_groep"
+        ],
+        "maximum": 4,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "default_value": "diensten",
+        "pos": 8
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Diensten",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "dienst_groep",
+    "display_name": "Dienstengroep",
+    "description": null,
+    "schema": {
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Bijvoorbeeld \"DE / Development\". De / krijgt automatisch de accentkleur.",
+        "pos": 0
+      },
+      "diensten": {
+        "type": "bloks",
+        "display_name": "Diensten",
+        "restrict_components": true,
+        "component_whitelist": [
+          "dienst"
+        ],
+        "maximum": 4,
+        "pos": 1
+      }
+    },
+    "image": null,
+    "preview_field": "label",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Dienstengroep",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "dienst",
+    "display_name": "Dienst",
+    "description": null,
+    "schema": {
+      "titel": {
+        "type": "text",
+        "display_name": "Titel",
+        "required": true,
+        "pos": 0
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 220,
+        "pos": 1
+      },
+      "accent": {
+        "type": "boolean",
+        "display_name": "Streepje in de accentkleur",
+        "description": "Zet een amber streepje boven de titel.",
+        "pos": 2
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Dienst",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "pakketten",
+    "display_name": "Pakketten",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "pakketten"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Pakketten",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Dit kost het, en zo lang duurt het",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 300,
+        "default_value": "Vaste prijs, duidelijke oplevering. Wat er niet in zit, zeggen we vooraf. Past geen pakket, dan maken we een plan op maat.",
+        "pos": 4
+      },
+      "pakketten": {
+        "type": "bloks",
+        "display_name": "Pakketten",
+        "description": "Drie pakketten passen naast elkaar; meer schuift door naar de volgende rij.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "pakket"
+        ],
+        "maximum": 6,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "default_value": "pakketten",
+        "pos": 8
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Pakketten",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "pakket",
+    "display_name": "Pakket",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "titel",
+          "titel_accent",
+          "prijs",
+          "prijs_toelichting",
+          "kenmerken",
+          "buttons"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Bijvoorbeeld \"DE / Development\". De / krijgt automatisch de accentkleur.",
+        "pos": 1
+      },
+      "titel": {
+        "type": "text",
+        "display_name": "Titel",
+        "required": true,
+        "pos": 2
+      },
+      "titel_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de titel",
+        "description": "Optioneel. Dit teken of woord uit de titel krijgt de accentkleur.",
+        "pos": 3
+      },
+      "prijs": {
+        "type": "text",
+        "display_name": "Prijs",
+        "description": "Zoals je hem wilt tonen, bijvoorbeeld \"v.a. € 120,-\".",
+        "pos": 4
+      },
+      "prijs_toelichting": {
+        "type": "text",
+        "display_name": "Onder de prijs",
+        "description": "Bijvoorbeeld \"eenmalig\" of \"per maand, looptijd 12 maanden\".",
+        "pos": 5
+      },
+      "kenmerken": {
+        "type": "textarea",
+        "display_name": "Wat er in zit",
+        "description": "Eén kenmerk per regel. Elke regel krijgt een vinkje.",
+        "pos": 6
+      },
+      "buttons": {
+        "type": "bloks",
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 1,
+        "pos": 7
+      },
+      "tab-nadruk": {
+        "type": "tab",
+        "display_name": "Uitgelicht",
+        "keys": [
+          "uitgelicht",
+          "badge"
+        ],
+        "pos": 8
+      },
+      "uitgelicht": {
+        "type": "boolean",
+        "display_name": "Uitgelicht",
+        "description": "Zet dit pakket op nachtgroen en laat het iets uitsteken.",
+        "pos": 9
+      },
+      "badge": {
+        "type": "text",
+        "display_name": "Badge",
+        "description": "Alleen zichtbaar bij een uitgelicht pakket.",
+        "default_value": "Onze aanrader",
+        "pos": 10
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Pakket",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "contact",
+    "display_name": "Contact",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "personen",
+          "adres_label",
+          "adres"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Contact",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Vertel wat je wilt bereiken",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 400,
+        "default_value": "Bel of mail degene die je nodig hebt, of stuur het formulier en kies bij wie het terechtkomt. Je krijgt antwoord van ons zelf, niet van een postvak.",
+        "pos": 4
+      },
+      "personen": {
+        "type": "bloks",
+        "display_name": "Contactpersonen",
+        "description": "Deze mensen komen ook als keuze in het formulier te staan.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "contact_persoon"
+        ],
+        "maximum": 4,
+        "pos": 5
+      },
+      "adres_label": {
+        "type": "text",
+        "display_name": "Label bij het adres",
+        "default_value": "Adres",
+        "pos": 6
+      },
+      "adres": {
+        "type": "text",
+        "display_name": "Adres",
+        "description": "Optioneel, op één regel.",
+        "pos": 7
+      },
+      "tab-formulier": {
+        "type": "tab",
+        "display_name": "Formulier",
+        "keys": [
+          "toon_formulier",
+          "formulier_titel",
+          "naam_label",
+          "naam_placeholder",
+          "email_label",
+          "email_placeholder",
+          "bericht_label",
+          "bericht_placeholder",
+          "privacy_tekst",
+          "verzend_label",
+          "formulier_actie"
+        ],
+        "pos": 8
+      },
+      "toon_formulier": {
+        "type": "boolean",
+        "display_name": "Formulier tonen",
+        "default_value": true,
+        "pos": 9
+      },
+      "formulier_titel": {
+        "type": "text",
+        "display_name": "Vraag boven de keuze",
+        "default_value": "Naar wie gaat je bericht?",
+        "pos": 10
+      },
+      "naam_label": {
+        "type": "text",
+        "display_name": "Label naamveld",
+        "default_value": "Naam",
+        "pos": 11
+      },
+      "naam_placeholder": {
+        "type": "text",
+        "display_name": "Voorbeeldtekst naamveld",
+        "default_value": "Je naam",
+        "pos": 12
+      },
+      "email_label": {
+        "type": "text",
+        "display_name": "Label e-mailveld",
+        "default_value": "E-mailadres",
+        "pos": 13
+      },
+      "email_placeholder": {
+        "type": "text",
+        "display_name": "Voorbeeldtekst e-mailveld",
+        "default_value": "naam@bedrijf.nl",
+        "pos": 14
+      },
+      "bericht_label": {
+        "type": "text",
+        "display_name": "Label berichtveld",
+        "default_value": "Waar kunnen we mee helpen?",
+        "pos": 15
+      },
+      "bericht_placeholder": {
+        "type": "text",
+        "display_name": "Voorbeeldtekst berichtveld",
+        "pos": 16
+      },
+      "privacy_tekst": {
+        "type": "text",
+        "display_name": "Regel onder het formulier",
+        "default_value": "We gebruiken je gegevens alleen om je te antwoorden.",
+        "pos": 17
+      },
+      "verzend_label": {
+        "type": "text",
+        "display_name": "Tekst op de knop",
+        "default_value": "Stuur je bericht",
+        "pos": 18
+      },
+      "formulier_actie": {
+        "type": "text",
+        "display_name": "Formulier-actie (URL)",
+        "description": "Het adres waar het formulier naartoe post. Zolang dit leeg is wordt het formulier wel getoond, maar nog niet verstuurd.",
+        "pos": 19
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 20
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 21
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "default_value": "contact",
+        "pos": 22
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Contact",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "contact_persoon",
+    "display_name": "Contactpersoon",
+    "description": null,
+    "schema": {
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Bijvoorbeeld \"MA / Marketing\". De / krijgt automatisch de accentkleur.",
+        "pos": 0
+      },
+      "naam": {
+        "type": "text",
+        "display_name": "Naam",
+        "required": true,
+        "pos": 1
+      },
+      "rol": {
+        "type": "text",
+        "display_name": "Rol",
+        "pos": 2
+      },
+      "email": {
+        "type": "text",
+        "display_name": "E-mailadres",
+        "pos": 3
+      },
+      "telefoon": {
+        "type": "text",
+        "display_name": "Telefoonnummer",
+        "pos": 4
+      }
+    },
+    "image": null,
+    "preview_field": "naam",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Contactpersoon",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "loopband",
+    "display_name": "Loopband",
+    "description": null,
+    "schema": {
+      "items": {
+        "type": "textarea",
+        "display_name": "Steekwoorden",
+        "description": "Eén per regel. Ze lopen als band voorbij, gescheiden door een amberkleurige slash.",
+        "default_value": "Websites\nWebapplicaties\nSEO\nOnline marketing\nTwee mensen\nEén plan\nGeen accountmanager",
+        "pos": 0
+      }
+    },
+    "image": null,
+    "preview_field": "items",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Loopband",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "profielen",
+    "display_name": "Profielen",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "profielen"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Wat de naam zegt",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Twee vakken in één naam. De schuine streep zit ertussen, wij niet.",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 300,
+        "default_value": "Wat we bouwen, maken we vindbaar. Wat we vindbaar maken, moet het waard zijn om op te klikken. Daarom doen we het samen, vanaf het eerste gesprek.",
+        "pos": 4
+      },
+      "profielen": {
+        "type": "bloks",
+        "display_name": "Profielen",
+        "description": "Twee profielen passen naast elkaar.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "profiel"
+        ],
+        "maximum": 4,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 9
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Profielen",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "profiel",
+    "display_name": "Profiel",
+    "description": null,
+    "schema": {
+      "foto": {
+        "type": "asset",
+        "display_name": "Foto",
+        "description": "Liggend, ongeveer 8:5. Zonder foto blijft het vlak als plaatshouder staan.",
+        "filetypes": [
+          "images"
+        ],
+        "pos": 0
+      },
+      "badge": {
+        "type": "text",
+        "display_name": "Letters op de foto",
+        "description": "De twee letters uit het woordmerk: MA of DE.",
+        "max_length": 4,
+        "pos": 1
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Bijvoorbeeld \"MA / Marketing\". De / krijgt automatisch de accentkleur.",
+        "pos": 2
+      },
+      "naam": {
+        "type": "text",
+        "display_name": "Naam",
+        "required": true,
+        "pos": 3
+      },
+      "functie": {
+        "type": "text",
+        "display_name": "Functie",
+        "pos": 4
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 300,
+        "pos": 5
+      }
+    },
+    "image": null,
+    "preview_field": "naam",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Profiel",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "stappen",
+    "display_name": "Stappen",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "stappen"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Aanpak",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Eerst kijken, dan een plan, dan pas bouwen.",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3,
+        "default_value": "dan pas"
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 300,
+        "default_value": "Is je site snel, maar staat hij op pagina drie? Dan lossen we dat eerst op. Ook als het antwoord is dat je geen nieuwe site nodig hebt.",
+        "pos": 4
+      },
+      "stappen": {
+        "type": "bloks",
+        "display_name": "Stappen",
+        "description": "De nummers lopen vanzelf door; die hoef je niet in te typen.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "stap"
+        ],
+        "maximum": 6,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "nachtgroen",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 8,
+        "default_value": "aanpak"
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Stappen",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "stap",
+    "display_name": "Stap",
+    "description": null,
+    "schema": {
+      "titel": {
+        "type": "text",
+        "display_name": "Titel",
+        "required": true,
+        "pos": 0
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 220,
+        "pos": 1
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Stap",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "werk",
+    "display_name": "Werk",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "buttons",
+          "items"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Werk",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Wat we bouwden, en wat het opleverde.",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "description": "Optioneel. Staat rechts naast de kop, boven een eventuele knop.",
+        "max_length": 300,
+        "pos": 4
+      },
+      "buttons": {
+        "type": "bloks",
+        "display_name": "Knop naast de kop",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 1,
+        "pos": 5
+      },
+      "items": {
+        "type": "bloks",
+        "display_name": "Cases",
+        "restrict_components": true,
+        "component_whitelist": [
+          "werk_item"
+        ],
+        "maximum": 8,
+        "pos": 6
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 7
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 8
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 9,
+        "default_value": "werk"
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Werk",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "werk_item",
+    "display_name": "Case",
+    "description": null,
+    "schema": {
+      "beeld": {
+        "type": "asset",
+        "display_name": "Beeld",
+        "description": "Liggend, ongeveer 8:5. Zonder beeld blijft het vlak als plaatshouder staan.",
+        "filetypes": [
+          "images"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Bijvoorbeeld \"Zorg / Website + SEO\". De / krijgt automatisch de accentkleur.",
+        "pos": 1
+      },
+      "titel": {
+        "type": "text",
+        "display_name": "Klant",
+        "required": true,
+        "pos": 2
+      },
+      "resultaat": {
+        "type": "text",
+        "display_name": "Resultaat",
+        "description": "Het cijfer dat groot naast de naam komt, bijvoorbeeld \"+180%\".",
+        "pos": 3
+      },
+      "resultaat_toelichting": {
+        "type": "text",
+        "display_name": "Onder het resultaat",
+        "description": "Waarin gemeten en over welke periode.",
+        "pos": 4
+      },
+      "link": {
+        "type": "multilink",
+        "display_name": "Link",
+        "description": "Leeg laten maakt de kaart niet klikbaar.",
+        "pos": 5
+      },
+      "breedte": {
+        "type": "option",
+        "display_name": "Breedte",
+        "description": "Hoeveel van de rij deze case inneemt. Onder 900px staat alles onder elkaar.",
+        "default_value": "normaal",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Normaal (halve rij)",
+            "value": "normaal"
+          },
+          {
+            "name": "Breed",
+            "value": "breed"
+          },
+          {
+            "name": "Smal",
+            "value": "smal"
+          }
+        ],
+        "pos": 6
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Case",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "stellingen",
+    "display_name": "Stellingen",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "intro",
+          "stellingen"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Eigenwijs",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Drie dingen die je bij ons niet krijgt.",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3
+      },
+      "intro": {
+        "type": "textarea",
+        "display_name": "Introtekst",
+        "max_length": 300,
+        "default_value": "We mogen een mening hebben. We verkopen alleen nooit met angst.",
+        "pos": 4
+      },
+      "stellingen": {
+        "type": "bloks",
+        "display_name": "Stellingen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "stelling"
+        ],
+        "maximum": 8,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "verhoogd",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 7
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 9
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Stellingen",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "stelling",
+    "display_name": "Stelling",
+    "description": null,
+    "schema": {
+      "titel": {
+        "type": "text",
+        "display_name": "Titel",
+        "required": true,
+        "pos": 0
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 220,
+        "pos": 1
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Stelling",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "cta",
+    "display_name": "Oproep",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "label",
+          "headline",
+          "headline_accent",
+          "tekst",
+          "buttons"
+        ],
+        "pos": 0
+      },
+      "label": {
+        "type": "text",
+        "display_name": "Label",
+        "description": "Kapitalenlabel boven de kop. Elke / krijgt automatisch de accentkleur.",
+        "default_value": "Contact",
+        "pos": 1
+      },
+      "headline": {
+        "type": "text",
+        "display_name": "Kop",
+        "required": true,
+        "max_length": 140,
+        "default_value": "Vertel wat je wilt bereiken.",
+        "pos": 2
+      },
+      "headline_accent": {
+        "type": "text",
+        "display_name": "Accentwoord in de kop",
+        "description": "Optioneel. Dit woord uit de kop krijgt de accentkleur.",
+        "pos": 3,
+        "default_value": "bereiken"
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst",
+        "max_length": 300,
+        "default_value": "Een gesprek van een half uur, zonder verplichting. Je krijgt antwoord van een van ons tweeën.",
+        "pos": 4
+      },
+      "buttons": {
+        "type": "bloks",
+        "display_name": "Knoppen",
+        "restrict_components": true,
+        "component_whitelist": [
+          "button"
+        ],
+        "maximum": 2,
+        "pos": 5
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "toon_slash",
+          "vlak",
+          "anchor"
+        ],
+        "pos": 6
+      },
+      "toon_slash": {
+        "type": "boolean",
+        "display_name": "Slashes tonen",
+        "description": "Het schuine beeldmerk rechts in de strook.",
+        "default_value": true,
+        "pos": 7
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "nachtgroen",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 8
+      },
+      "anchor": {
+        "type": "text",
+        "display_name": "Anker-id",
+        "description": "Zonder #. Hiermee kan een menu-item naar deze strook springen.",
+        "pos": 9
+      }
+    },
+    "image": null,
+    "preview_field": "headline",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Oproep",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "voet",
+    "display_name": "Voet",
+    "description": null,
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "tekst",
+          "kolommen",
+          "copyright",
+          "onderlinks"
+        ],
+        "pos": 0
+      },
+      "tekst": {
+        "type": "textarea",
+        "display_name": "Tekst onder het logo",
+        "max_length": 220,
+        "default_value": "Marketing en development door de twee mensen die het ook maken.",
+        "pos": 1
+      },
+      "kolommen": {
+        "type": "bloks",
+        "display_name": "Kolommen",
+        "description": "Drie kolommen passen naast elkaar.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "voet_kolom"
+        ],
+        "maximum": 4,
+        "pos": 2
+      },
+      "copyright": {
+        "type": "text",
+        "display_name": "Copyrightregel",
+        "description": "Elke / krijgt automatisch de accentkleur.",
+        "pos": 3
+      },
+      "onderlinks": {
+        "type": "bloks",
+        "display_name": "Links onderaan",
+        "description": "Bijvoorbeeld privacy en voorwaarden.",
+        "restrict_components": true,
+        "component_whitelist": [
+          "nav_link"
+        ],
+        "maximum": 4,
+        "pos": 4
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "logo_width"
+        ],
+        "pos": 5
+      },
+      "logo_width": {
+        "type": "number",
+        "display_name": "Breedte van het logo",
+        "description": "In pixels. Leeg laten geeft 200.",
+        "pos": 6
+      }
+    },
+    "image": null,
+    "preview_field": "copyright",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Voet",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "voet_kolom",
+    "display_name": "Voetkolom",
+    "description": null,
+    "schema": {
+      "titel": {
+        "type": "text",
+        "display_name": "Titel",
+        "required": true,
+        "pos": 0
+      },
+      "links": {
+        "type": "bloks",
+        "display_name": "Links",
+        "restrict_components": true,
+        "component_whitelist": [
+          "nav_link"
+        ],
+        "maximum": 8,
+        "pos": 1
+      },
+      "regels": {
+        "type": "textarea",
+        "display_name": "Losse regels",
+        "description": "Eén per regel, voor wat geen link is: adres, telefoonnummer.",
+        "pos": 2
+      }
+    },
+    "image": null,
+    "preview_field": "titel",
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Voetkolom",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  }
+]

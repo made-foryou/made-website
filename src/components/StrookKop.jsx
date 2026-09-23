@@ -1,0 +1,43 @@
+import StrookLabel from '@/components/StrookLabel';
+import { accentueer } from '@/lib/tekst';
+
+/* De kop van een strook met kaarten: links het label en de kop, rechts een
+   introzin of — als children worden meegegeven — bijvoorbeeld een knop.
+   Met formaat="groot" staat de kop in de zware variant. */
+
+const StrookKop = ({
+	label,
+	titel,
+	accent,
+	intro,
+	kopId,
+	formaat = 'klein',
+	streep = true,
+	children,
+}) => {
+	if (!label && !titel && !intro && !children) return null;
+
+	return (
+		<div className="strook-kop" data-formaat={formaat}>
+			<div className="strook-kop__tekst">
+				<StrookLabel tekst={label} streep={streep} />
+
+				{titel && (
+					<h2 id={kopId} className="strook-kop__titel" data-onthul="">
+						{accentueer(titel, accent)}
+					</h2>
+				)}
+			</div>
+
+			{intro && (
+				<p className="strook-kop__intro" data-onthul="">
+					{intro}
+				</p>
+			)}
+
+			{children}
+		</div>
+	);
+};
+
+export default StrookKop;
