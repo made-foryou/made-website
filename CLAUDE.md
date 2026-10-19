@@ -4,31 +4,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Wat dit is
 
-MADE's eigen website, opgezet vanaf de officiële **Storyblok "Core Space Blueprint: Next.js"** template (zie `README.md`, dat nog de ongewijzigde blueprint-docs bevat). De inhoud staat nog dicht bij de template: vier standaard blokken, minimale styling, `metadata` in `layout.js` staat nog op "Create Next App".
+MADE's eigen website, opgezet vanaf de officiële **Storyblok "Core Space Blueprint: Next.js"** template (zie `README.md`, dat nog de ongewijzigde blueprint-docs bevat). Van die template zijn de opzet en de blokken `feature`, `grid` en `teaser` over; de site zelf bestaat uit de stroken hieronder, in de MADE-huisstijl.
 
 Stack: Next.js 16 (App Router) + React 19 + Storyblok als headless CMS via `@storyblok/react/rsc`, plus anime.js v4 voor de intro-animatie. **Plain JavaScript, geen TypeScript** (`jsconfig.json`, geen `tsconfig.json`). Geen tests, geen testrunner.
 
-Let op: deze map is **geen git-repo** (geen `.git`). Voer geen git-commando's uit en stel geen commits/branches voor zonder eerst met Menno af te stemmen hoe dit project onder versiebeheer hoort te staan.
+De repo staat op GitHub als `made-foryou/made-website`; wijzigingen gaan via een feature branch en een PR naar `main`.
 
 ## Commando's
 
 ```sh
 npm install
-npm run dev     # dev server op http://localhost:3000
-npm run build   # productie build
-npm start       # productie server
-npm run lint    # eslint . (flat config, eslint-config-next/core-web-vitals)
+npm run dev        # dev server op http://localhost:3000
+npm run dev:https  # idem over https (next dev --experimental-https)
+npm run build      # productie build
+npm start          # productie server
+npm run lint       # eslint . (flat config, eslint-config-next/core-web-vitals)
 ```
 
-Voor de **Storyblok Visual Editor** moet de dev server over HTTPS draaien — anders laadt de preview niet:
+Voor de **Storyblok Visual Editor** moet de dev server over HTTPS draaien (`npm run dev:https`), anders laadt de preview niet. De certificaten die Next daarvoor maakt landen in `certificates/` en staan in `.gitignore`. In Storyblok staat de default environment op `https://localhost:3000/`, met `/` als Real path van de `home` story.
 
-```sh
-npx next dev --experimental-https
-```
-
-In Storyblok staat de default environment op `https://localhost:3000/`, met `/` als Real path van de `home` story.
-
-**ESLint blijft op 9 staan — niet bumpen naar 10.** `eslint-config-next` zet voor alle bestanden de Babel-parser in die in Next zelf gebundeld zit (`next/dist/compiled/babel/eslint-parser`). De scope manager daarvan mist `addGlobals`, dat ESLint 10 vereist, dus elke lintrun crasht met `TypeError: scopeManager.addGlobals is not a function`. De peer-range van `eslint-config-next` staat `^10` wél toe, dus npm waarschuwt hier niet voor. Houd `eslint-config-next` bovendien gelijk aan de `next`-versie.
+**ESLint blijft op 9 staan — niet bumpen naar 10.** `eslint-config-next` zet voor alle bestanden de Babel-parser in die in Next zelf gebundeld zit (`next/dist/compiled/babel/eslint-parser`). De scope manager daarvan mist `addGlobals`, dat ESLint 10 vereist, dus elke lintrun crasht met `TypeError: scopeManager.addGlobals is not a function`. De peer-range van `eslint-config-next` staat `^10` wél toe, dus npm waarschuwt hier niet voor. Dependabot (`.github/dependabot.yml`) groepeert de devDependencies zonder grens op majorversies en stelt ESLint 10 dus wél voor — zo'n PR niet mergen. Houd `eslint-config-next` bovendien gelijk aan de `next`-versie; Dependabot zet ze samen in de groep `framework`.
 
 De flat config importeert `eslint-config-next/core-web-vitals` rechtstreeks; `@eslint/eslintrc` en `FlatCompat` zijn niet meer nodig en zijn verwijderd.
 
@@ -74,6 +69,18 @@ Ze delen drie dingen:
   alle stroken samen): `--made-maat-inhoud` breed, `clamp()` marges, en onder
   900px klappen de tweekoloms stroken naar één kolom.
 - Elk blok heeft een `anchor`-veld, zodat een `nav_link` ernaartoe kan springen.
+
+Tekstbewerkingen die in meerdere blokken terugkomen staan in `src/lib/tekst.js`:
+het accentwoord in een kop (`accentueer`), de amber slashes in labels
+(`splitsOpSlash`), een lijstje uit een textarea, één item per regel (`regels`),
+en de waarde van een `anchor`-veld (`anker`).
+
+Een strook is pas te zien als er content in Storyblok staat. Om er tijdens het
+bouwen naar te kijken kun je tijdelijk een eigen route maken, bv.
+`src/app/voorbeeld/page.js`: die importeert `@/lib/storyblok` en rendert
+`<StoryblokServerComponent>` met handgeschreven blok-objecten (elk met
+`component` en een unieke `_uid`). Een vaste route wint van de catch-all. Haal
+hem weg voordat je klaar bent, anders gaat hij publiek mee de deploy in.
 
 **Het vlak waarop een strook staat** is een veld (`vlak`: standaard, verhoogd,
 nachtgroen) en in CSS één modifier — `.strook--verhoogd` en
@@ -143,9 +150,9 @@ stijl op.
 
 `src/lib/stories.js` kiest de Storyblok-versie: `draft` in development, `published` in productie. `STORYBLOK_VERSION` overschrijft dat expliciet — zet die op `draft` voor een previewdeploy waar de Visual Editor op draait, anders ziet de editor daar alleen gepubliceerde content. Die variabele staat bewust **niet** in de `env`-blok van `next.config.mjs`: `stories.js` draait alleen server-side, dus hij hoeft niet in de publieke bundle.
 
-Gevolg: een story die nog niet is gepubliceerd geeft in productie een 404, ook al ziet hij er in de Visual Editor goed uit. Bij "werkt lokaal, 404 op productie" is dat de eerste plek om te kijken.
+Gevolg: een story die nog niet is gepubliceerd bestaat in productie niet, ook al ziet hij er in de Visual Editor goed uit. Dat wordt overigens een **500**, geen 404: `getStory` vangt de fout van de Storyblok-API niet af en de route roept geen `notFound()` aan. Hetzelfde geldt voor elk onbekend pad. Bij "werkt lokaal, fout op productie" is dit de eerste plek om te kijken.
 
-`.env.example` bevat de te zetten variabelen; `region` valt terug op `'eu'`.
+`.env.example` bevat de te zetten variabelen; `region` valt terug op `'eu'`. Omdat het `env`-blok in `next.config.mjs` de Storyblok-waarden tijdens de **build** in de code zet, werkt een gewijzigde token of regio pas na een nieuwe build; alleen de server herstarten is niet genoeg.
 
 ## Designsysteem en thema's
 
@@ -220,7 +227,9 @@ Drie dingen die hier makkelijk misgaan:
 
 ## Deploy
 
-Zowel Netlify (`netlify.toml`, `@netlify/plugin-nextjs`) als Vercel (`vercel.json`) zijn geconfigureerd. Welke van de twee daadwerkelijk live staat is uit de repo niet af te leiden — vraag het bij twijfel.
+De testomgeving draait op **Laravel Forge met een DigitalOcean-droplet**: `next start` als daemon achter Nginx, en Forge schrijft de Environment-tab naar `.env`. Na een env-wijziging dus opnieuw bouwen en de daemon herstarten (zie hierboven); bij een fout online is de daemonlog de eerste bron.
+
+`netlify.toml` (met `@netlify/plugin-nextjs`) en `vercel.json` komen uit de blueprint en worden daar niet gebruikt. Waar productie komt te staan is uit de repo niet af te leiden; vraag het bij twijfel.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
