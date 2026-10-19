@@ -481,6 +481,9 @@ a:hover {
 	line-height: 1.6;
 	max-width: 560px;
 	color: var(--made-inhoud-zwak);
+	/* Enters en lege regels uit de Storyblok-textarea blijven staan. Vóór
+	   text-wrap, want white-space zet text-wrap-mode terug. */
+	white-space: pre-line;
 	text-wrap: pretty;
 }
 
