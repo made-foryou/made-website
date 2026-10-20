@@ -38,6 +38,11 @@
 	--made-link: var(--made-amber-donker);
 	--made-focus: var(--made-amber);
 
+	/* Signalen: een fout in een formulier en de bevestiging na versturen. */
+	--made-signaal-fout: var(--made-fout);
+	--made-succes-vlak: var(--made-succes);
+	--made-op-succes: var(--made-krijt);
+
 	/* Themagebonden onderdelen die geen rol-token hebben.
 	   Hiermee blijft de markup identiek in beide thema's. */
 	--made-logo-woord: var(--made-nachtgroen);
@@ -98,6 +103,10 @@
 		--made-op-accent: var(--made-nachtgroen);
 		--made-link: var(--made-amber-licht);
 		--made-focus: var(--made-amber);
+
+		--made-signaal-fout: var(--made-fout-licht);
+		--made-succes-vlak: var(--made-succes-licht);
+		--made-op-succes: var(--made-nachtgroen);
 
 		--made-logo-woord: var(--made-krijt);
 		--made-logo-slash: var(--made-amber-licht);
@@ -286,6 +295,7 @@ a:hover {
 	font-family: inherit;
 	font-size: 14px;
 	color: var(--made-inhoud);
+	transition: border-color 150ms ease;
 }
 
 .made-veld__invoer::placeholder {
@@ -297,6 +307,19 @@ a:hover {
 .made-veld__invoer:focus {
 	padding: 10.5px 14px;
 	border: 2px solid var(--made-accent);
+}
+
+/* Na :focus, zodat een fout ook rood blijft terwijl je hem verbetert. */
+.made-veld--fout .made-veld__invoer {
+	padding: 10.5px 14px;
+	border: 2px solid var(--made-signaal-fout);
+}
+
+.made-veld__fout {
+	margin: 5px 0 0;
+	font-size: 12.5px;
+	line-height: 1.4;
+	color: var(--made-signaal-fout);
 }
 
 /* ------------------------------------------------ Strooklabel en -kop */
@@ -794,6 +817,9 @@ a:hover {
 	--made-rand: var(--made-nachtgroen-vlak);
 	--made-rand-sterk: var(--made-wad);
 	--made-link: var(--made-amber-licht);
+	--made-signaal-fout: var(--made-fout-licht);
+	--made-succes-vlak: var(--made-succes-licht);
+	--made-op-succes: var(--made-nachtgroen);
 	--made-uitgelicht-vlak: var(--made-nachtgroen-vlak);
 	--made-logo-woord: var(--made-krijt);
 	--made-logo-slash: var(--made-amber-licht);
@@ -1965,22 +1991,54 @@ a:hover {
 
 /* ------------------------------------------------ Contactformulier */
 
+/* De states en hun overgangen staan in ContactFormulier.jsx en
+   contactBeweging.js; hier staan de vormen en de kleine CSS-overgangen.
+   Animeer opacity en transform nooit op .contact__formulier zelf: dat draagt
+   data-onthul (zie "Onthullen bij scroll"). */
+
 .contact__formulier {
+	position: relative;
 	flex-grow: 1;
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
-	gap: var(--made-space-5);
 	padding: var(--made-space-7);
 	background: var(--made-oppervlak-verhoogd);
 	border: 1px solid var(--made-rand);
 	border-radius: var(--made-radius-m);
 }
 
+@media (min-width: 901px) {
+	.contact__formulier {
+		min-height: 520px;
+	}
+}
+
+/* Invullen en versturen: meldingen, velden en voet onder elkaar. */
+.contact__fase {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-5);
+}
+
+.contact__velden {
+	display: flex;
+	flex-direction: column;
+	gap: var(--made-space-5);
+}
+
+/* Tijdens het versturen staan de velden op slot en zakken ze terug. */
+.contact__formulier[data-bezig] .contact__velden {
+	opacity: 0.55;
+	pointer-events: none;
+}
+
 .contact__keuze {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	min-width: 0;
 }
 
 .contact__keuze-kop {
@@ -1999,6 +2057,7 @@ a:hover {
 
 .contact__rij {
 	gap: var(--made-space-5);
+	align-items: start;
 }
 
 .contact__optie {
@@ -2010,6 +2069,15 @@ a:hover {
 	border: 1.5px solid var(--made-rand-sterk);
 	border-radius: var(--made-radius-s);
 	cursor: pointer;
+}
+
+/* De gekozen kaart krijgt de linkkleur; puur CSS, dus ook zonder JS. */
+.contact__optie:has(.contact__radio:checked) {
+	border-color: var(--made-link);
+}
+
+.contact__keuze--fout .contact__optie {
+	border-color: var(--made-signaal-fout);
 }
 
 .contact__radio {
@@ -2045,12 +2113,59 @@ a:hover {
 	line-height: 1.5;
 }
 
+.made-veld__invoer[readonly] {
+	cursor: progress;
+}
+
+/* De samenvatting boven de velden: "Bijna klaar." of een mislukte poging. */
+.contact__samenvatting {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--made-space-3);
+	margin-bottom: var(--made-space-5);
+	padding: 14px 16px;
+	background: var(--made-oppervlak);
+	border: 1.5px solid var(--made-signaal-fout);
+	border-radius: var(--made-radius-s);
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+/* Hij staat altijd in de DOM (om open en dicht te kunnen klappen); de
+   onderrand vult dan de gap, zodat hij dicht geen ruimte inneemt. */
+.contact__fase > .contact__uitklap:first-child {
+	margin-bottom: calc(-1 * var(--made-space-5));
+}
+
+.contact__samenvatting strong {
+	font-family: var(--font-kop);
+	font-weight: 700;
+}
+
+.contact__samenvatting a {
+	color: var(--made-link);
+	text-underline-offset: 3px;
+}
+
+.contact__samenvatting-icoon {
+	flex-shrink: 0;
+	margin-top: 1px;
+	stroke: var(--made-signaal-fout);
+	stroke-linecap: round;
+}
+
+.contact__samenvatting-punt {
+	fill: var(--made-signaal-fout);
+	stroke: none;
+}
+
 .contact__voet {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	gap: var(--made-space-5);
+	margin-top: auto;
 }
 
 .contact__privacy {
@@ -2059,6 +2174,179 @@ a:hover {
 	font-size: 13px;
 	line-height: 1.5;
 	color: var(--made-inhoud-zwak);
+}
+
+.contact__knop {
+	flex-shrink: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.contact__knop[aria-disabled='true'] {
+	cursor: progress;
+}
+
+/* Tijdens het versturen blijft de knop amber; hij is bezig, niet uit. */
+.contact__knop[aria-disabled='true']:hover {
+	background: var(--made-accent);
+	color: var(--made-op-accent);
+}
+
+.contact__knop-inhoud {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.made-knop__draaier {
+	flex-shrink: 0;
+	animation: made-draai 0.8s linear infinite;
+}
+
+@keyframes made-draai {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Voor bots. Niet display: none, want daar kijken sommige juist naar. */
+.contact__honing {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* Verstuurd. */
+.contact__succes {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: var(--made-space-5);
+	padding: var(--made-space-6) var(--made-space-4);
+}
+
+.contact__vink {
+	display: grid;
+	place-items: center;
+	width: 56px;
+	height: 56px;
+	border-radius: var(--made-radius-pil);
+	background: var(--made-succes-vlak);
+}
+
+.contact__vink svg {
+	display: block;
+	stroke: var(--made-op-succes);
+}
+
+.contact__succes-tekst {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.contact__succes-label {
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--made-inhoud-zwak);
+}
+
+.contact__succes-kop {
+	margin: 0;
+	font-family: var(--font-kop);
+	font-weight: 700;
+	font-size: clamp(24px, 2.6vw, 28px);
+	line-height: 1.2;
+	letter-spacing: -0.015em;
+}
+
+.contact__succes-kop:focus {
+	outline: none;
+}
+
+.contact__succes-uitleg {
+	margin: 0;
+	max-width: 460px;
+	font-size: 17px;
+	line-height: 1.6;
+	color: var(--made-inhoud-zwak);
+	text-wrap: pretty;
+}
+
+/* Openklappen via grid-template-rows: 0fr → 1fr, zodat de hoogte van de
+   inhoud zelf mag komen. Een melding binnen hoort in een element met marge,
+   niet met padding: de binnenste laag knipt af. */
+.contact__uitklap {
+	display: grid;
+	grid-template-rows: 0fr;
+	opacity: 0;
+}
+
+.contact__uitklap[data-open] {
+	grid-template-rows: 1fr;
+	opacity: 1;
+}
+
+.contact__uitklap-binnen {
+	min-height: 0;
+	overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.contact__optie {
+		transition: border-color 150ms ease;
+	}
+
+	.contact__velden {
+		transition: opacity 200ms ease;
+	}
+
+	.contact__uitklap {
+		transition:
+			grid-template-rows 280ms var(--onthul-curve),
+			opacity 200ms ease;
+	}
+
+	.contact__uitklap-binnen {
+		translate: 0 -4px;
+		transition: translate 280ms var(--onthul-curve);
+	}
+
+	/* Openen gaat op documentvolgorde, 40ms per veld; dichtklappen meteen. */
+	.contact__uitklap[data-open],
+	.contact__uitklap[data-open] .contact__uitklap-binnen {
+		transition-delay: calc(var(--uitklap-index, 0) * 40ms);
+	}
+
+	.contact__uitklap[data-open] .contact__uitklap-binnen {
+		translate: none;
+	}
+
+	/* Tekst die wisselt ("Nog 3 dingen" → "Nog 2", de knop, de voetregel)
+	   komt kort omhoog binnen; het element krijgt bij elke wissel een
+	   nieuwe key. */
+	.contact__wissel {
+		animation: contact-wissel 220ms var(--onthul-curve);
+	}
+}
+
+@keyframes contact-wissel {
+	from {
+		opacity: 0;
+		translate: 0 6px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.made-knop__draaier {
+		animation-duration: 2.4s;
+	}
 }
 
 @media (max-width: 900px) {

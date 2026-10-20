@@ -117,10 +117,10 @@ vooraan in de leesvolgorde. Het uitgelichte pakket staat op nachtgroen in
 **beide** thema's; die kleuren lopen via de `--made-uitgelicht-*`-tokens, dus
 vertak ook hier niet in JavaScript op het thema.
 
-Het contactformulier post naar wat er in `formulier_actie` staat. Zolang dat
-leeg is, wordt het formulier wel getoond maar is versturen nog niet aangesloten;
-er is geen route of server action die het afvangt. De keuzerondjes "naar wie
-gaat je bericht" komen uit dezelfde `personen` als de kaarten ernaast.
+Het contactformulier verstuurt via Postmark; zie "Contactformulier en
+Postmark" hieronder. De keuzerondjes "naar wie gaat je bericht" komen uit
+dezelfde `personen` als de kaarten ernaast. Zonder contactpersonen blijft het
+formulier weg, want dan valt er niemand te kiezen.
 
 **Blok-schema's staan in de repo**, op de plek waar de Storyblok CLI ze verwacht: `.storyblok/components/295294118476970/components.json` (space "Made Website"). Pas dit bestand aan en push het, in plaats van velden met de hand in de UI te klikken — anders lopen repo en space uiteen.
 
@@ -159,7 +159,7 @@ Gevolg: een story die nog niet is gepubliceerd bestaat in productie niet, ook al
 De huisstijl komt uit het MADE-designsysteem (designtokens uit huisstijlhandboek 1.0) en staat volledig in `src/app/globals.css` als CSS-variabelen. Twee lagen:
 
 - **Merkkleuren** (`--made-nachtgroen`, `--made-amber`, `--made-krijt`, ...) zijn vast en veranderen nooit.
-- **Rollen** (`--made-oppervlak`, `--made-inhoud`, `--made-link`, ...) wijzen naar merkkleuren en worden onder `@media (prefers-color-scheme: dark)` opnieuw gezet. Gebruik in componenten altijd de rol, nooit de merkkleur direct.
+- **Rollen** (`--made-oppervlak`, `--made-inhoud`, `--made-link`, ...) wijzen naar merkkleuren en worden onder `@media (prefers-color-scheme: dark)` opnieuw gezet. Gebruik in componenten altijd de rol, nooit de merkkleur direct. Voor formulieren zijn er drie signaalrollen: `--made-signaal-fout` (fout / fout-licht), `--made-succes-vlak` en `--made-op-succes`; ook die schuiven mee in `.strook--nachtgroen`.
 
 Het donkere thema volgt **alleen** de systeeminstelling; er is bewust geen handmatige schakelaar en geen `data-theme`-attribuut in de app. Daardoor is er één set markup voor beide thema's: onderdelen die niet op een bestaande rol passen (logo-inkt, de achterste slash, de heroleur van het label) hebben een eigen token — `--made-logo-woord`, `--made-logo-slash`, `--made-slash-achter`, `--made-hero-label` — dat per thema wisselt. **Vertak dus nooit in JavaScript op het thema**: dat geeft hydration-mismatches, en het is niet nodig.
 
@@ -218,6 +218,90 @@ Drie dingen die hier makkelijk misgaan:
   Zonder attribuut is de tijdlijn de enige die ze beweegt. De hero komt bij die
   overdracht bewust als één geheel mee met het wegvallen van de overlay, zonder
   stagger; de trapsgewijze opbouw hoort bij een bezoek zonder intro.
+
+## Contactformulier en Postmark
+
+Het formulier in de `contact`-strook staat in `src/components/ContactFormulier.jsx`
+(het vierde `'use client'`-bestand). `Contact.jsx` blijft een RSC en geeft het
+labels, de keuzes en `antwoord_termijn` mee. De vier states komen uit het
+designcanvas (artboards `Contact`, `ContactFouten`, `ContactVersturen`,
+`ContactVerstuurd`, elk ook in Nachtgroen): invullen, validatie, versturen,
+verstuurd. Een mislukte poging gebruikt hetzelfde meldingsblok als de
+validatie.
+
+**Versturen** gaat via de server action `src/lib/verstuurContact.js`
+(`useActionState`). Die stuurt eerst een melding naar de gekozen persoon en
+daarna een bevestiging naar de afzender, allebei met `src/lib/postmark.js`
+(gewone `fetch`, geen SDK, open- en linktracking uit). Komt de melding niet aan,
+dan krijgt de bezoeker "Versturen lukte niet". Een mislukte bevestiging wordt
+alleen gelogd.
+
+- **Het mailadres van de ontvanger komt nooit uit het formulier.** Het formulier
+  stuurt de pagina (`usePathname`), de `_uid` van het contact-blok en de sleutel
+  van de persoon (`naarSleutel(naam)`). De action haalt de story op en zoekt de
+  persoon daarin. Een vervalste sleutel levert dus een foutmelding op, geen mail
+  naar een willekeurig adres. Gevolg: het formulier werkt pas als de story met
+  dat blok bestaat in de versie die de server leest, dus in productie de
+  gepubliceerde.
+- **Misbruik**: de bevestiging gaat wél naar een adres dat de bezoeker zelf
+  intypt. Daartegen staan een honeypotveld `website` (ingevuld = doen alsof het
+  gelukt is), maximale lengtes (`MAX` in `src/lib/contactformulier.js`), een
+  rate limit van 5 per IP per 10 minuten en een noodrem van 40 per uur in
+  totaal. De tellers leven in het geheugen van het proces; dat werkt omdat de
+  site als één `next start` draait. Het IP komt uit `X-Real-IP`, anders uit het
+  láátste item van `X-Forwarded-For` (de items ervoor kan de bezoeker zelf
+  meesturen). Lokaal is dat voor alles `lokaal`, dus na 5 testberichten zit je
+  10 minuten vast tot de module herlaadt.
+- **Controle** staat één keer in `src/lib/contactformulier.js` en draait zowel in
+  het formulier als in de action. Daar staan ook de foutteksten uit het ontwerp.
+- **Zonder JavaScript** post het formulier gewoon naar de action
+  (progressive enhancement) en rendert de server de nieuwe state. Houd de
+  velden daarom controlled met `waarden` als begin-invoer.
+- **Mails** staan in `src/lib/mails/` (`melding.js`, `bevestiging.js`, gedeelde
+  opmaak in `opmaak.js`). Ze zijn handgeschreven HTML met tabellen en inline
+  stijlen, naar de artboards `MailMelding*` en `MailBevestiging*`. Donker loopt
+  via één `@media (prefers-color-scheme: dark)` op `m-*`-klassen. Logo en
+  beeldmerk zijn PNG's in `public/mail/`, want Gmail toont geen SVG. Ze
+  verwijzen via `SITE_URL`, dus die moet de publieke URL van de omgeving zijn.
+  Alles van de bezoeker gaat door `escapeHtml()`.
+
+**Transities.** De weergavefase loopt los van de action-state: "versturen"
+blijft minstens 900 ms staan, en voor het verstuurd-scherm vervaagt eerst de
+oude inhoud. Daarna veert het formulier naar zijn nieuwe hoogte, veert de
+groene schijf in en tekent het vinkje zichzelf (`svg.createDrawable`). De
+anime.js-kant staat in `src/lib/contactBeweging.js`. De kleine overgangen staan
+in CSS: meldingen klappen open via `grid-template-rows: 0fr → 1fr`
+(`.contact__uitklap`), en wisselende tekst krijgt een nieuwe `key` met de
+animatie `.contact__wissel`. Drie dingen die hier makkelijk misgaan:
+
+- **Animeer nooit `opacity` of `transform` van `.contact__formulier` zelf.** Dat
+  element draagt `data-onthul`, en de transitie van 900 ms kruipt dan achter
+  anime.js aan. Beweging hoort op de kinderen; het formulier krijgt alleen een
+  `height`-tween.
+- `komBinnen()` zet de begintoestand met `utils.set` in een layout-effect.
+  `revert()` gaat terug náár die toestand, niet ervoor; daarom wist `opruimen()`
+  de inline stijlen zelf. Zet daar geen extra `utils.set` bij zonder hem ook
+  in `opruimen()` op te nemen, anders blijft de inhoud onzichtbaar.
+- De lintregels van React Compiler (`react-hooks/refs`,
+  `set-state-in-effect`, `set-state-in-render`) staan aan. Metingen gebeuren
+  daarom in event handlers en animatie-callbacks, niet in render, en
+  `useLaatste` is het toegestane "state bijwerken tijdens render"-patroon.
+
+In development hangt `window.__madeContact` aan het venster. `toon('versturen' |
+'verstuurd' | 'mislukt' | 'te-vaak' | null)` forceert een state, `vul({...})`
+vult velden, en `tijdlijn` is de laatste anime.js-tijdlijn (`pause()`, `seek(ms)`).
+
+**Env** (server-only, dus **niet** in het `env`-blok van `next.config.mjs`):
+`POSTMARK_SERVER_TOKEN`, `POSTMARK_MESSAGE_STREAM` (de ID van een eigen
+**transactionele** stream in Postmark; verplicht, er is bewust geen terugval op
+`outbound`, en zonder stream verstuurt de site niets), `CONTACT_AFZENDER` (één
+adres op het in Postmark geverifieerde domein; beide mails komen daarvandaan,
+met een Reply-To naar de juiste persoon) en `SITE_URL`. Ontbreekt de token of
+de stream, dan krijgt de bezoeker "Versturen lukte niet" en staat de reden in
+de daemonlog. Met de token `POSTMARK_API_TEST` valideert
+Postmark zonder te versturen; handig in `.env.local`. Omdat deze waarden pas
+bij het versturen gelezen worden, volstaat na een wijziging een herstart van de
+daemon.
 
 ## Conventies
 
