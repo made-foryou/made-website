@@ -1298,7 +1298,7 @@
           "bericht_placeholder",
           "privacy_tekst",
           "verzend_label",
-          "formulier_actie"
+          "antwoord_termijn"
         ],
         "pos": 8
       },
@@ -1361,10 +1361,10 @@
         "default_value": "Stuur je bericht",
         "pos": 18
       },
-      "formulier_actie": {
+      "antwoord_termijn": {
         "type": "text",
-        "display_name": "Formulier-actie (URL)",
-        "description": "Het adres waar het formulier naartoe post. Zolang dit leeg is wordt het formulier wel getoond, maar nog niet verstuurd.",
+        "display_name": "Antwoord binnen",
+        "description": "Bijvoorbeeld \"één werkdag\". Staat na het versturen in \"Je krijgt binnen … antwoord\" en in de bevestigingsmail. Leeg = \"zo snel mogelijk\".",
         "pos": 19
       },
       "tab-techniek": {
