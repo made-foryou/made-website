@@ -1454,6 +1454,19 @@
         "max_length": 300,
         "pos": 5,
         "id": "GaxiFuK9TEGLa1syGngo9w"
+      },
+      "link": {
+        "type": "multilink",
+        "display_name": "Link naar detailpagina",
+        "description": "Met een link komt er onderaan een knop en is het hele profiel klikbaar. Leeg laten = geen knop.",
+        "pos": 6
+      },
+      "knop_label": {
+        "type": "text",
+        "display_name": "Tekst op de knop",
+        "description": "Alleen te zien met een link. Leeg = \"Lees meer\".",
+        "default_value": "Lees meer",
+        "pos": 7
       }
     },
     "image": null,
