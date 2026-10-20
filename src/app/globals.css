@@ -930,11 +930,13 @@ a:hover {
 	gap: var(--made-space-9);
 }
 
+/* De kaarten in een rij worden even hoog, zodat hun knoppen onderaan op één
+   lijn staan. */
 .profielen__kaarten {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	gap: var(--made-space-8);
-	align-items: start;
+	align-items: stretch;
 }
 
 .profiel {
@@ -952,6 +954,7 @@ a:hover {
 	border: 1px solid var(--made-rand);
 	border-radius: var(--made-radius-l);
 	overflow: hidden;
+	transition: border-color 200ms ease;
 }
 
 .profiel__foto {
@@ -1033,21 +1036,26 @@ a:hover {
 	text-wrap: pretty;
 }
 
-/* Met een link: de knop is de enige <a> en zijn ::after dekt de hele kaart,
-   zodat ook portret en tekst klikbaar zijn. Links in de richtext liggen
-   erboven en blijven zelf klikbaar. */
+/* Met een link staat er onderaan een knop, en spant zijn ::after over de hele
+   kaart: een klik op het portret of de tekst gaat ook naar de detailpagina.
+   De knop zelf mag dus geen position of transform krijgen, anders spant de
+   ::after alleen over de knop. Links in de richtext liggen erboven en blijven
+   zelf klikbaar. */
 .profiel--link {
 	position: relative;
 }
 
 .profiel__knop {
 	align-self: flex-start;
+	gap: var(--made-space-2);
+	margin-top: auto;
 }
 
 .profiel__knop::after {
 	content: '';
 	position: absolute;
 	inset: 0;
+	border-radius: var(--made-radius-l);
 }
 
 .profiel--link .profiel__alinea a {
@@ -1055,15 +1063,56 @@ a:hover {
 	z-index: 1;
 }
 
-.profiel--link:hover .profiel__portret {
-	border-color: var(--made-rand-sterk);
+/* De focusring komt om de kaart, niet om de knop: de hele kaart is de link. */
+.profiel__knop:focus-visible {
+	outline: none;
 }
 
-/* Hover op de kaart kleurt de knop zoals .made-knop--secundair:hover. */
-.profiel--link:hover .profiel__knop {
-	background: var(--made-accent);
-	color: var(--made-op-accent);
-	border-color: var(--made-accent);
+.profiel__knop:focus-visible::after {
+	outline: 2px solid var(--made-focus);
+	outline-offset: 6px;
+}
+
+.profiel__pijl {
+	flex: none;
+}
+
+/* Hover op de kaart geeft de knop zijn hoverstaat en het portret een
+   zwaardere rand. Op een aanraakscherm blijft een hover hangen, vandaar
+   (hover: hover); daar is de knop zelf het teken dat je kunt klikken. */
+@media (hover: hover) {
+	.profiel--link:hover .profiel__portret {
+		border-color: var(--made-rand-sterk);
+	}
+
+	.profiel--link:hover .profiel__knop {
+		background: var(--made-accent);
+		color: var(--made-op-accent);
+		border-color: var(--made-accent);
+	}
+}
+
+/* De foto zoomt langzaam in en de pijl schuift een stukje op. Dat beweegt de
+   kinderen, niet de kaart: die draagt data-onthul, en de transitie van 900ms
+   zou anders achter de hover aan kruipen. */
+@media (prefers-reduced-motion: no-preference) {
+	.profiel__foto {
+		transition: scale 700ms var(--onthul-curve);
+	}
+
+	.profiel__pijl {
+		transition: translate 280ms var(--onthul-curve);
+	}
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+	.profiel--link:hover .profiel__foto {
+		scale: 1.04;
+	}
+
+	.profiel--link:hover .profiel__pijl {
+		translate: 4px 0;
+	}
 }
 
 /* -------------------------------------------------------- Stappen */

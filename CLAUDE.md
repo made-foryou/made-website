@@ -109,17 +109,21 @@ nachtgroen strook niet samenvalt met een nachtgroen pagina. Geef een nieuwe
 strook die modifier via `strookKlassen()` uit `src/lib/stroken.js` en je hoeft
 verder niets per kleur te regelen. De voet gebruikt dezelfde regel.
 
-Nog drie dingen die in de code zitten:
+Nog vier dingen die in de code zitten:
 
 - De nummers in `stappen` komen uit een **CSS-counter** op `.stappen__lijst`,
   niet uit de inhoud. Een stap ertussen schuiven hoeft dus alleen in Storyblok.
 - `werk__cases` is een grid van **twaalf kolommen**; een `werk_item` zegt met
   `breedte` of hij 5, 6 of 7 kolommen inneemt. Onder 900px staat alles onder
   elkaar. Een case met link wordt één grote `<a>`; die heeft `color: inherit`
-  nodig, anders trekt de globale `a:hover` de hele kaart amber. Een `profiel`
-  met link kan geen grote `<a>` worden, want zijn tekst is richtext en kan
-  eigen links bevatten (`<a>` in `<a>`). Daar is de knop onderaan de link, en
-  zijn `::after` legt een klikvlak over de hele kaart.
+  nodig, anders trekt de globale `a:hover` de hele kaart amber.
+- Een `profiel` met `link` werkt andersom: hij kan geen grote `<a>` worden,
+  want zijn tekst is richtext en kan eigen links bevatten (`<a>` in `<a>`).
+  Daar is de knop onderaan de enige `<a>`, en zijn `::after` spant over de hele
+  kaart (`.profiel--link` is `position: relative`). Geef `.profiel__knop` dus
+  geen `position` of `transform`, anders is alleen de knop nog klikbaar. De
+  hover beweegt de foto en de pijl, niet de kaart zelf: die draagt
+  `data-onthul`.
 - De loopband staat er twee keer in en schuift precies `-50%` op; daardoor is de
   lus naadloos. Bij `prefers-reduced-motion: reduce` staat hij stil, en hij is
   `aria-hidden` omdat dezelfde woorden verderop in de diensten staan.

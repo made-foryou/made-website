@@ -12,7 +12,9 @@ import { splitsOpSlash } from '@/lib/tekst';
    Met een link komt er onderaan een knop en is de hele kaart klikbaar. Anders
    dan bij werk_item is de kaart zelf geen <a>: de tekst is richtext en kan
    eigen links bevatten, en een <a> in een <a> mag niet. De knop is de link;
-   zijn ::after legt een klikvlak over de hele kaart (zie globals.css). */
+   zijn ::after legt een klikvlak over de hele kaart (zie globals.css). Zo
+   staat er ook één link met een duidelijke naam in de toegankelijkheidsboom,
+   in plaats van een <a> om de kop en de alinea heen. */
 
 const Profiel = ({ blok }) => {
 	const foto = blok.foto?.filename || null;
@@ -73,6 +75,22 @@ const Profiel = ({ blok }) => {
 					{...linkTarget(blok.link)}
 				>
 					{blok.knop_label || 'Lees meer'}
+					<svg
+						className="profiel__pijl"
+						viewBox="0 0 16 16"
+						width="16"
+						height="16"
+						aria-hidden="true"
+					>
+						<path
+							d="M2 8h11M9 3.5 13.5 8 9 12.5"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
 				</Tag>
 			)}
 		</article>
