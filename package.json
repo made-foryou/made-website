@@ -20,5 +20,16 @@
     "@netlify/plugin-nextjs": "^5.16.0",
     "eslint": "^10",
     "eslint-config-next": "16.4.2"
+  },
+  "overrides": {
+    "eslint-plugin-import": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
+    }
   }
 }
