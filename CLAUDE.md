@@ -116,7 +116,10 @@ Nog drie dingen die in de code zitten:
 - `werk__cases` is een grid van **twaalf kolommen**; een `werk_item` zegt met
   `breedte` of hij 5, 6 of 7 kolommen inneemt. Onder 900px staat alles onder
   elkaar. Een case met link wordt één grote `<a>`; die heeft `color: inherit`
-  nodig, anders trekt de globale `a:hover` de hele kaart amber.
+  nodig, anders trekt de globale `a:hover` de hele kaart amber. Een `profiel`
+  met link kan geen grote `<a>` worden, want zijn tekst is richtext en kan
+  eigen links bevatten (`<a>` in `<a>`). Daar is de knop onderaan de link, en
+  zijn `::after` legt een klikvlak over de hele kaart.
 - De loopband staat er twee keer in en schuift precies `-50%` op; daardoor is de
   lus naadloos. Bij `prefers-reduced-motion: reduce` staat hij stil, en hij is
   `aria-hidden` omdat dezelfde woorden verderop in de diensten staan.

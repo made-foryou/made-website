@@ -1033,6 +1033,39 @@ a:hover {
 	text-wrap: pretty;
 }
 
+/* Met een link: de knop is de enige <a> en zijn ::after dekt de hele kaart,
+   zodat ook portret en tekst klikbaar zijn. Links in de richtext liggen
+   erboven en blijven zelf klikbaar. */
+.profiel--link {
+	position: relative;
+}
+
+.profiel__knop {
+	align-self: flex-start;
+}
+
+.profiel__knop::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+.profiel--link .profiel__alinea a {
+	position: relative;
+	z-index: 1;
+}
+
+.profiel--link:hover .profiel__portret {
+	border-color: var(--made-rand-sterk);
+}
+
+/* Hover op de kaart kleurt de knop zoals .made-knop--secundair:hover. */
+.profiel--link:hover .profiel__knop {
+	background: var(--made-accent);
+	color: var(--made-op-accent);
+	border-color: var(--made-accent);
+}
+
 /* -------------------------------------------------------- Stappen */
 
 .stappen__binnen {
