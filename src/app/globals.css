@@ -322,6 +322,25 @@ a:hover {
 	color: var(--made-signaal-fout);
 }
 
+/* ----------------------------------------------------------- Richtext */
+
+/* Een richtextveld (Tekstveld.jsx) is een <div> met een <p> per alinea. De
+   tekststijl staat op de div met de klasse van het veld; de alinea's en
+   lijsten erven die en krijgen hier alleen hun onderlinge afstand. Storyblok
+   zet ook in elk lijstitem een <p>. */
+.made-richtext > *,
+.made-richtext li > p {
+	margin: 0;
+}
+
+.made-richtext > * + * {
+	margin-top: 1em;
+}
+
+.made-richtext :is(ul, ol) {
+	padding-left: 1.25em;
+}
+
 /* ------------------------------------------------ Strooklabel en -kop */
 
 /* Het kapitalenlabel boven een kop; komt in bijna elke strook terug. */
@@ -504,7 +523,7 @@ a:hover {
 	line-height: 1.6;
 	max-width: 560px;
 	color: var(--made-inhoud-zwak);
-	/* Enters en lege regels uit de Storyblok-textarea blijven staan. Vóór
+	/* Enters en lege regels uit de oude textarea-tekst blijven staan. Vóór
 	   text-wrap, want white-space zet text-wrap-mode terug. */
 	white-space: pre-line;
 	text-wrap: pretty;

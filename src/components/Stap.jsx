@@ -1,4 +1,5 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
+import Tekstveld from '@/components/Tekstveld';
 
 /* Eén stap. Het nummer staat niet in de inhoud: de CSS-counter van
    .stappen__lijst telt zelf door. */
@@ -11,7 +12,7 @@ const Stap = ({ blok }) => (
 		</div>
 
 		{blok.titel && <h3 className="stap__titel">{blok.titel}</h3>}
-		{blok.tekst && <p className="stap__tekst">{blok.tekst}</p>}
+		<Tekstveld waarde={blok.tekst} className="stap__tekst" />
 	</li>
 );
 

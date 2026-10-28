@@ -4,6 +4,7 @@ import {
 	StoryblokServerComponent,
 } from '@storyblok/react/rsc';
 import StrookLabel from '@/components/StrookLabel';
+import Tekstveld from '@/components/Tekstveld';
 import { anker } from '@/lib/tekst';
 import { strookKlassen } from '@/lib/stroken';
 
@@ -39,11 +40,11 @@ const TekstBeeld = ({ blok }) => {
 						</h2>
 					)}
 
-					{blok.tekst && (
-						<p className="tekst-beeld__alinea" data-onthul="">
-							{blok.tekst}
-						</p>
-					)}
+					<Tekstveld
+						waarde={blok.tekst}
+						className="tekst-beeld__alinea"
+						data-onthul=""
+					/>
 
 					{blok.buttons?.length > 0 && (
 						<div className="tekst-beeld__acties" data-onthul="">

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { storyblokEditable } from '@storyblok/react/rsc';
+import Tekstveld from '@/components/Tekstveld';
 import { splitsOpSlash } from '@/lib/tekst';
 
 /* Eén profielkaart: portret met de twee letters uit het woordmerk erop,
@@ -44,7 +45,7 @@ const Profiel = ({ blok }) => {
 				{blok.functie && <div className="profiel__functie">{blok.functie}</div>}
 			</div>
 
-			{blok.tekst && <p className="profiel__alinea">{blok.tekst}</p>}
+			<Tekstveld waarde={blok.tekst} className="profiel__alinea" />
 		</article>
 	);
 };

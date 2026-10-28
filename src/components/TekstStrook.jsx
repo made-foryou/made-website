@@ -3,6 +3,7 @@ import {
 	StoryblokServerComponent,
 } from '@storyblok/react/rsc';
 import StrookLabel from '@/components/StrookLabel';
+import Tekstveld from '@/components/Tekstveld';
 import { anker } from '@/lib/tekst';
 import { strookKlassen } from '@/lib/stroken';
 
@@ -28,17 +29,17 @@ const TekstStrook = ({ blok }) => {
 					</h2>
 				)}
 
-				{blok.intro && (
-					<p className="tekst-strook__intro" data-onthul="">
-						{blok.intro}
-					</p>
-				)}
+				<Tekstveld
+					waarde={blok.intro}
+					className="tekst-strook__intro"
+					data-onthul=""
+				/>
 
-				{blok.tekst && (
-					<p className="tekst-strook__alinea" data-onthul="">
-						{blok.tekst}
-					</p>
-				)}
+				<Tekstveld
+					waarde={blok.tekst}
+					className="tekst-strook__alinea"
+					data-onthul=""
+				/>
 
 				{blok.buttons?.length > 0 && (
 					<div className="tekst-strook__acties" data-onthul="">
