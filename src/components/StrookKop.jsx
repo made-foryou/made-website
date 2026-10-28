@@ -1,5 +1,6 @@
 import StrookLabel from '@/components/StrookLabel';
-import { accentueer } from '@/lib/tekst';
+import Tekstveld from '@/components/Tekstveld';
+import { accentueer, heeftTekst } from '@/lib/tekst';
 
 /* De kop van een strook met kaarten: links het label en de kop, rechts een
    introzin of — als children worden meegegeven — bijvoorbeeld een knop.
@@ -15,7 +16,7 @@ const StrookKop = ({
 	streep = true,
 	children,
 }) => {
-	if (!label && !titel && !intro && !children) return null;
+	if (!label && !titel && !heeftTekst(intro) && !children) return null;
 
 	return (
 		<div className="strook-kop" data-formaat={formaat}>
@@ -29,11 +30,7 @@ const StrookKop = ({
 				)}
 			</div>
 
-			{intro && (
-				<p className="strook-kop__intro" data-onthul="">
-					{intro}
-				</p>
-			)}
+			<Tekstveld waarde={intro} className="strook-kop__intro" data-onthul="" />
 
 			{children}
 		</div>

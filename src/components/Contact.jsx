@@ -4,6 +4,7 @@ import {
 } from '@storyblok/react/rsc';
 import StrookLabel from '@/components/StrookLabel';
 import ContactFormulier from '@/components/ContactFormulier';
+import Tekstveld from '@/components/Tekstveld';
 import { accentueer, anker, naarSleutel } from '@/lib/tekst';
 import { strookKlassen } from '@/lib/stroken';
 
@@ -40,11 +41,11 @@ const Contact = ({ blok }) => {
 						</h2>
 					)}
 
-					{blok.intro && (
-						<p className="contact__intro" data-onthul="">
-							{blok.intro}
-						</p>
-					)}
+					<Tekstveld
+						waarde={blok.intro}
+						className="contact__intro"
+						data-onthul=""
+					/>
 
 					{personen.length > 0 && (
 						<div className="contact__personen" data-onthul="">

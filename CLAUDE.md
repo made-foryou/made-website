@@ -44,6 +44,8 @@ De flat config importeert `eslint-config-next/core-web-vitals` rechtstreeks; `@e
 
 Een nieuw blok toevoegen = component in `src/components/` + entry in de `components`-map in `src/lib/storyblok.js` + het blok aanmaken in de Storyblok space.
 
+Rendert de dev server na een wijziging aan een blok-component nog de oude versie, herstart hem dan. `storyblokInit` keert terug zodra er al een instantie is, dus bij een hot reload wordt de component-map niet bijgewerkt, ook al meldt Next "Compiled".
+
 **De stroken.** Elke strook is één blok dat je in `body` van een `page` zet.
 Ze komen allemaal uit het designcanvas:
 
@@ -77,7 +79,19 @@ Ze delen drie dingen:
 Tekstbewerkingen die in meerdere blokken terugkomen staan in `src/lib/tekst.js`:
 het accentwoord in een kop (`accentueer`), de amber slashes in labels
 (`splitsOpSlash`), een lijstje uit een textarea, één item per regel (`regels`),
-en de waarde van een `anchor`-veld (`anker`).
+de waarde van een `anchor`-veld (`anker`), en of een tekstveld iets bevat
+(`heeftTekst`).
+
+**Richtextvelden** render je met `Tekstveld.jsx` (`<Tekstveld waarde={blok.intro}
+className="…" />`), nooit met `{blok.intro}` direct: richtext is een object, en
+dan geeft React "Objects are not valid as a React child" en de pagina een 500.
+`Tekstveld` kan ook platte tekst aan. Dat is nodig, want een veld dat van
+textarea naar richtext is omgezet houdt zijn oude string totdat iemand de tekst
+opnieuw bewerkt, en `StrookKop` krijgt van sommige stroken nog een textarea
+mee. Richtext wordt een `<div class="made-richtext …">` met een `<p>` per
+alinea; de afstand daartussen staat één keer in `globals.css`. Een leeg
+richtextveld is geen `null` maar een doc met een lege alinea, dus check met
+`heeftTekst()` en niet met `&&`.
 
 Een strook is pas te zien als er content in Storyblok staat. Om er tijdens het
 bouwen naar te kijken kun je tijdelijk een eigen route maken, bv.
@@ -102,7 +116,10 @@ Nog drie dingen die in de code zitten:
 - `werk__cases` is een grid van **twaalf kolommen**; een `werk_item` zegt met
   `breedte` of hij 5, 6 of 7 kolommen inneemt. Onder 900px staat alles onder
   elkaar. Een case met link wordt één grote `<a>`; die heeft `color: inherit`
-  nodig, anders trekt de globale `a:hover` de hele kaart amber.
+  nodig, anders trekt de globale `a:hover` de hele kaart amber. Een `profiel`
+  met link kan geen grote `<a>` worden, want zijn tekst is richtext en kan
+  eigen links bevatten (`<a>` in `<a>`). Daar is de knop onderaan de link, en
+  zijn `::after` legt een klikvlak over de hele kaart.
 - De loopband staat er twee keer in en schuift precies `-50%` op; daardoor is de
   lus naadloos. Bij `prefers-reduced-motion: reduce` staat hij stil, en hij is
   `aria-hidden` omdat dezelfde woorden verderop in de diensten staan.

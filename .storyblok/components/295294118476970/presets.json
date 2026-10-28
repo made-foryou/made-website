@@ -1,0 +1,111 @@
+[
+  {
+    "id": 232671364351857,
+    "name": "Hoofd menu",
+    "preset": {
+      "_uid": "ec0f1ddf-5323-4f47-a125-bc23a4372096",
+      "intro": "MADE bestaat uit Menno en Muriël Tempelaar. Menno bouwt websites en webapplicaties op maat, Muriël doet de SEO en de marketingstrategie. Wij werken vanuit 's-Gravendeel voor (jonge) ondernemers, stichtingen en kleine bedrijven in de omgeving en daarbuiten.\n\nDe meeste bedrijven hebben twee partijen: iemand die de website bouwt en iemand die de website vindbaar maakt. Als er iets misgaat, wijzen ze naar elkaar. Bij ons zit dat bij één partij, en dat scheelt je een hoop gedoe.",
+      "label": "MArketing / DEvelopment",
+      "buttons": [],
+      "headline": "Wij bouwen het én zorgen dat het gevonden wordt",
+      "show_nav": true,
+      "component": "hero",
+      "nav_items": [
+        {
+          "_uid": "10bbb754-f958-4cc8-af2e-25ff99e8127a",
+          "link": {
+            "id": "fe962e60-fadf-427b-8aa6-f27ad6c9fdb3",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "home"
+          },
+          "label": "Home",
+          "component": "nav_link"
+        },
+        {
+          "_uid": "eb4ecb55-013f-451b-adfd-261b1ddc7b9c",
+          "link": {
+            "id": "44e83068-be37-4902-892a-d447fd95e614",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "menno"
+          },
+          "label": "Menno",
+          "component": "nav_link"
+        },
+        {
+          "_uid": "eb3f9e5f-3664-474d-ab55-f58ad910b367",
+          "link": {
+            "id": "f037bbea-334d-4fd5-9383-377230397be3",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "muriel"
+          },
+          "label": "Muriël",
+          "component": "nav_link"
+        },
+        {
+          "_uid": "cb8f12ad-0f06-4f14-9374-77ca29379e7c",
+          "link": {
+            "id": "f09346e0-7444-4683-9f3d-65d34c11e86d",
+            "url": "",
+            "linktype": "story",
+            "fieldtype": "multilink",
+            "cached_url": "contact"
+          },
+          "label": "Contact",
+          "variant": "primair",
+          "component": "button"
+        }
+      ],
+      "logo_width": "150",
+      "slash_size": "480",
+      "beeld_label": "Twee mensen / Eén plan",
+      "beeld_variant": "vlak",
+      "toon_beeldmerk": true,
+      "headline_accent": "gevonden"
+    },
+    "component_id": 221126668485338,
+    "space_id": 295294118476970,
+    "created_at": "2026-10-20T11:02:12.311Z",
+    "updated_at": "2026-10-20T11:02:12.311Z",
+    "image": "",
+    "color": "",
+    "icon": "layout-list",
+    "description": "",
+    "space_environment_id": null
+  },
+  {
+    "id": 232672252155762,
+    "name": "Main footer",
+    "preset": {
+      "_uid": "9bdb7f48-e47e-46f1-aa55-355353a3d15c",
+      "tekst": "Marketing en development door de twee mensen die het ook maken.",
+      "kolommen": [
+        {
+          "_uid": "3cd194e8-4940-4098-86d9-f39c008a4c2f",
+          "links": [],
+          "titel": "Contact",
+          "regels": "van der Merckstraat 5\n3295 XW, 's Gravendeel\nKvK 89071484\nBTW NL864870449B01",
+          "component": "voet_kolom"
+        }
+      ],
+      "component": "voet",
+      "copyright": "© Made / 2026",
+      "logo_width": "",
+      "onderlinks": []
+    },
+    "component_id": 222883427716330,
+    "space_id": 295294118476970,
+    "created_at": "2026-10-20T11:05:49.060Z",
+    "updated_at": "2026-10-20T11:05:49.060Z",
+    "image": "",
+    "color": "",
+    "icon": "",
+    "description": "",
+    "space_environment_id": null
+  }
+]

@@ -5,6 +5,7 @@ import {
 } from '@storyblok/react/rsc';
 import Logo from '@/components/Logo';
 import Beeldmerk from '@/components/Beeldmerk';
+import Tekstveld from '@/components/Tekstveld';
 import { accentueer, splitsOpSlash } from '@/lib/tekst';
 
 const Slash = ({ positie }) => (
@@ -71,11 +72,11 @@ const Hero = ({ blok }) => {
 						{accentueer(blok.headline, blok.headline_accent)}
 					</h1>
 
-					{blok.intro && (
-						<p className="hero__intro" data-onthul="">
-							{blok.intro}
-						</p>
-					)}
+					<Tekstveld
+						waarde={blok.intro}
+						className="hero__intro"
+						data-onthul=""
+					/>
 
 					{blok.buttons?.length > 0 && (
 						<div className="hero__acties" data-onthul="">

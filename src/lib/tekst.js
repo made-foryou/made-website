@@ -55,3 +55,19 @@ export function naarSleutel(tekst) {
 export function anker(waarde) {
 	return String(waarde ?? '').replace(/^#/, '') || undefined;
 }
+
+/* Lege knopen in een richtext-document: een leeg richtextveld is geen null
+   maar een doc met een lege paragraaf. */
+const LEGE_KNOPEN = ['doc', 'paragraph', 'heading', 'hard_break'];
+
+/* Of een tekstveld iets bevat; voor platte tekst en voor Storyblok-richtext. */
+export function heeftTekst(waarde) {
+	if (typeof waarde === 'string') return waarde.trim() !== '';
+	if (!waarde || typeof waarde !== 'object') return false;
+	if (typeof waarde.text === 'string') return waarde.text.trim() !== '';
+
+	return (
+		!LEGE_KNOPEN.includes(waarde.type) ||
+		(waarde.content ?? []).some(heeftTekst)
+	);
+}

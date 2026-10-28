@@ -65,7 +65,7 @@
     "display_name": "Contact",
     "description": null,
     "created_at": "2026-09-22T17:26:00.088Z",
-    "updated_at": "2026-10-20T06:03:37.588Z",
+    "updated_at": "2026-10-28T20:00:51.759Z",
     "id": 222856642927381,
     "schema": {
       "tab-inhoud": {
@@ -108,12 +108,40 @@
         "id": "9dOfUNvfQmir_hyrUwdbUQ"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Introtekst",
         "max_length": 400,
         "default_value": "Bel of mail degene die je nodig hebt, of stuur het formulier en kies bij wie het terechtkomt. Je krijgt antwoord van ons zelf, niet van een postvak.",
         "pos": 4,
-        "id": "xZeZfeQdTDuPsL3VRpl18Q"
+        "id": "xZeZfeQdTDuPsL3VRpl18Q",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h5",
+          "h6",
+          "h4",
+          "h3",
+          "h2",
+          "highlight",
+          "unset",
+          "image",
+          "italic",
+          "link",
+          "olist",
+          "anchor",
+          "paste-action",
+          "paragraph",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "personen": {
         "type": "bloks",
@@ -487,7 +515,7 @@
     "display_name": "Dienst",
     "description": null,
     "created_at": "2026-09-22T17:25:58.371Z",
-    "updated_at": "2026-09-22T17:25:58.371Z",
+    "updated_at": "2026-10-28T20:18:11.009Z",
     "id": 222856635894543,
     "schema": {
       "titel": {
@@ -498,11 +526,38 @@
         "id": "iLyWuFTzQO-vAs5Z0uTj4A"
       },
       "tekst": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Tekst",
         "max_length": 220,
         "pos": 1,
-        "id": "1l8Y8eRnSliG-4cICtGCCQ"
+        "id": "1l8Y8eRnSliG-4cICtGCCQ",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h6",
+          "h5",
+          "h3",
+          "h4",
+          "highlight",
+          "unset",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "accent": {
         "type": "boolean",
@@ -533,7 +588,7 @@
     "display_name": "Diensten",
     "description": null,
     "created_at": "2026-09-22T17:26:00.172Z",
-    "updated_at": "2026-09-22T19:14:59.339Z",
+    "updated_at": "2026-10-28T20:16:58.617Z",
     "id": 222856643271447,
     "schema": {
       "tab-inhoud": {
@@ -574,12 +629,40 @@
         "id": "s5gBxS5hTai7vDg__ThLVA"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Introtekst",
         "max_length": 300,
         "default_value": "Twee vakken, één plan. Wat we bouwen, maken we ook vindbaar; wat we vindbaar maken, moet het waard zijn om op te klikken.",
         "pos": 4,
-        "id": "6LvJSOj_QxCyk9H2xU2hHw"
+        "id": "6LvJSOj_QxCyk9H2xU2hHw",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "image",
+          "unset",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "groepen": {
         "type": "bloks",
@@ -757,7 +840,7 @@
     "display_name": "Hero",
     "description": null,
     "created_at": "2026-09-17T20:06:43.047Z",
-    "updated_at": "2026-10-20T06:05:33.112Z",
+    "updated_at": "2026-10-28T19:46:58.422Z",
     "id": 221126668485338,
     "schema": {
       "tab-inhoud": {
@@ -799,12 +882,40 @@
         "id": "uX3GlyC9Rtei8tzylHGTdQ"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "pos": 4,
         "display_name": "Introtekst",
-        "max_length": 500,
+        "max_length": 750,
         "default_value": "MADE is een fullstack developer en een online marketeer met SEO als vak. Geen bureau, geen accountmanager ertussen: je spreekt altijd degene die het maakt.",
-        "id": "ei78ENKnRPeX90gCWGOHqA"
+        "id": "ei78ENKnRPeX90gCWGOHqA",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "unset",
+          "image",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste",
+          "paste-action",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "buttons": {
         "type": "bloks",
@@ -915,7 +1026,17 @@
     "is_root": false,
     "preview_tmpl": null,
     "is_nestable": true,
-    "all_presets": [],
+    "all_presets": [
+      {
+        "id": 232671364351857,
+        "name": "Hoofd menu",
+        "component_id": 221126668485338,
+        "image": "",
+        "icon": "layout-list",
+        "color": "",
+        "description": ""
+      }
+    ],
     "preset_id": null,
     "real_name": "Hero",
     "component_group_uuid": null,
@@ -1124,7 +1245,7 @@
     "display_name": null,
     "description": null,
     "created_at": "2026-09-17T18:43:42.546Z",
-    "updated_at": "2026-09-20T12:14:58.448Z",
+    "updated_at": "2026-10-28T19:40:32.605Z",
     "id": 221106268348860,
     "schema": {
       "page_title": {
@@ -1407,7 +1528,7 @@
     "display_name": "Profiel",
     "description": null,
     "created_at": "2026-09-22T19:14:56.563Z",
-    "updated_at": "2026-09-22T19:14:56.563Z",
+    "updated_at": "2026-10-28T19:59:24.335Z",
     "id": 222883416329443,
     "schema": {
       "foto": {
@@ -1449,11 +1570,53 @@
         "id": "93U_jNEtSySpVkyA3YCijg"
       },
       "tekst": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Tekst",
-        "max_length": 300,
+        "max_length": 450,
         "pos": 5,
-        "id": "GaxiFuK9TEGLa1syGngo9w"
+        "id": "GaxiFuK9TEGLa1syGngo9w",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "inlinecode",
+          "list",
+          "code",
+          "h1",
+          "h2",
+          "h6",
+          "h5",
+          "h4",
+          "h3",
+          "highlight",
+          "italic",
+          "unset",
+          "link",
+          "anchor",
+          "paragraph",
+          "olist",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
+      },
+      "link": {
+        "type": "multilink",
+        "display_name": "Link naar detailpagina",
+        "description": "Met een link komt er onderaan een knop en is het hele profiel klikbaar. Leeg laten = geen knop.",
+        "pos": 6,
+        "id": "8KooGLXCSZyEJo_i2t0FXA"
+      },
+      "knop_label": {
+        "type": "text",
+        "display_name": "Tekst op de knop",
+        "description": "Alleen te zien met een link. Leeg = \"Lees meer\".",
+        "default_value": "Lees meer",
+        "pos": 7,
+        "id": "Qos1J0vfRGmzJtGz9NGxHg"
       }
     },
     "image": null,
@@ -1477,7 +1640,7 @@
     "display_name": "Profielen",
     "description": null,
     "created_at": "2026-09-22T19:14:58.277Z",
-    "updated_at": "2026-10-20T06:04:51.770Z",
+    "updated_at": "2026-10-28T19:58:29.771Z",
     "id": 222883423349988,
     "schema": {
       "tab-inhoud": {
@@ -1518,12 +1681,40 @@
         "id": "Z269BmHdSXCJyJNH_yojGg"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Introtekst",
         "max_length": 400,
         "default_value": "Wat we bouwen, maken we vindbaar. Wat we vindbaar maken, moet het waard zijn om op te klikken. Daarom doen we het samen, vanaf het eerste gesprek.",
         "pos": 4,
-        "id": "7iBjeRdGSPW9e3sPuojYBA"
+        "id": "7iBjeRdGSPW9e3sPuojYBA",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h6",
+          "h5",
+          "h4",
+          "h3",
+          "h2",
+          "highlight",
+          "image",
+          "unset",
+          "italic",
+          "link",
+          "paragraph",
+          "olist",
+          "anchor",
+          "paste-action",
+          "paste",
+          "quote",
+          "superscript",
+          "subscript",
+          "strike",
+          "underline"
+        ]
       },
       "profielen": {
         "type": "bloks",
@@ -1599,7 +1790,7 @@
     "display_name": "Stap",
     "description": null,
     "created_at": "2026-09-22T19:14:56.277Z",
-    "updated_at": "2026-09-22T19:14:56.277Z",
+    "updated_at": "2026-10-28T19:57:28.086Z",
     "id": 222883415157984,
     "schema": {
       "titel": {
@@ -1610,11 +1801,37 @@
         "id": "zBHP4LvIQJCHJvPFn4B2Mg"
       },
       "tekst": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Tekst",
-        "max_length": 220,
+        "max_length": 275,
         "pos": 1,
-        "id": "G-qZ1PK8TwuLg7gW8zKtLg"
+        "id": "G-qZ1PK8TwuLg7gW8zKtLg",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "underline",
+          "superscript",
+          "subscript"
+        ]
       }
     },
     "image": null,
@@ -1638,7 +1855,7 @@
     "display_name": "Stappen",
     "description": null,
     "created_at": "2026-09-22T19:14:58.281Z",
-    "updated_at": "2026-09-22T19:14:58.281Z",
+    "updated_at": "2026-10-28T19:56:33.708Z",
     "id": 222883423366373,
     "schema": {
       "tab-inhoud": {
@@ -1680,12 +1897,39 @@
         "id": "yNDV5N7MRoO-dRQPmKH2cQ"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Introtekst",
         "max_length": 300,
         "default_value": "Is je site snel, maar staat hij op pagina drie? Dan lossen we dat eerst op. Ook als het antwoord is dat je geen nieuwe site nodig hebt.",
         "pos": 4,
-        "id": "UCoYv0oWRxuR6_Nw-kyYyA"
+        "id": "UCoYv0oWRxuR6_Nw-kyYyA",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "unset",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste",
+          "paste-action",
+          "quote",
+          "strike",
+          "superscript",
+          "subscript",
+          "underline"
+        ]
       },
       "stappen": {
         "type": "bloks",
@@ -1762,7 +2006,7 @@
     "display_name": "Stelling",
     "description": null,
     "created_at": "2026-09-22T19:14:56.276Z",
-    "updated_at": "2026-09-22T19:14:56.276Z",
+    "updated_at": "2026-10-21T21:08:32.544Z",
     "id": 222883415153887,
     "schema": {
       "titel": {
@@ -1775,7 +2019,7 @@
       "tekst": {
         "type": "textarea",
         "display_name": "Tekst",
-        "max_length": 220,
+        "max_length": 300,
         "pos": 1,
         "id": "cIf7jI27RTK0cGOfra2H-A"
       }
@@ -2015,7 +2259,7 @@
     "display_name": "Tekst",
     "description": null,
     "created_at": "2026-09-22T17:25:59.085Z",
-    "updated_at": "2026-09-22T19:14:57.273Z",
+    "updated_at": "2026-10-28T20:20:01.122Z",
     "id": 222856638819089,
     "schema": {
       "tab-inhoud": {
@@ -2049,20 +2293,75 @@
         "id": "pa_5cYf1Tj2EBkYLtdCbsQ"
       },
       "intro": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Introtekst",
-        "max_length": 400,
-        "default_value": "We beginnen niet met een offerte, maar met kijken naar wat je nu hebt: wat werkt, wat niet en waar bezoekers afhaken. Daarna zeggen we wat we zouden doen, wat het kost en hoe lang het duurt. Ook als het antwoord is dat je geen nieuwe site nodig hebt.",
+        "max_length": 1000,
+        "default_value": "-",
         "pos": 3,
-        "id": "Q8lS_qWYR5WW2cmXv7EiMg"
+        "id": "Q8lS_qWYR5WW2cmXv7EiMg",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h6",
+          "h5",
+          "h4",
+          "h3",
+          "h2",
+          "highlight",
+          "unset",
+          "italic",
+          "link",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "tekst": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Tweede alinea",
         "description": "Optioneel. Leeg laten geeft één alinea.",
-        "max_length": 400,
+        "max_length": 750,
         "pos": 4,
-        "id": "fUxrfaotRrq_XoRdmczzCQ"
+        "id": "fUxrfaotRrq_XoRdmczzCQ",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "unset",
+          "image",
+          "link",
+          "italic",
+          "anchor",
+          "olist",
+          "paragraph",
+          "paste-action",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "buttons": {
         "type": "bloks",
@@ -2137,7 +2436,7 @@
     "display_name": "Tekst en beeld",
     "description": null,
     "created_at": "2026-09-22T17:25:59.361Z",
-    "updated_at": "2026-10-20T06:05:11.925Z",
+    "updated_at": "2026-10-28T19:55:33.417Z",
     "id": 222856639949587,
     "schema": {
       "tab-inhoud": {
@@ -2170,12 +2469,39 @@
         "id": "kKRnmcyZR7SnIvWr-tyUxA"
       },
       "tekst": {
-        "type": "textarea",
+        "type": "richtext",
         "display_name": "Tekst",
-        "max_length": 450,
+        "max_length": 700,
         "default_value": "Een site of webapplicatie die snel is, veilig blijft en die je zelf kunt bijhouden. Geen dichtgetimmerde templates: we bouwen wat jij nodig hebt en laten weg wat je toch niet gebruikt.",
         "pos": 3,
-        "id": "rgbtTnRWS1Cy_ka1Lz7a9Q"
+        "id": "rgbtTnRWS1Cy_ka1Lz7a9Q",
+        "customize_toolbar": true,
+        "toolbar": [
+          "bold",
+          "list",
+          "inlinecode",
+          "code",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "highlight",
+          "unset",
+          "image",
+          "italic",
+          "link",
+          "olist",
+          "anchor",
+          "paragraph",
+          "paste",
+          "quote",
+          "strike",
+          "subscript",
+          "superscript",
+          "underline"
+        ]
       },
       "buttons": {
         "type": "bloks",
@@ -2284,6 +2610,36 @@
     "metadata": {}
   },
   {
+    "name": "text",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-10-28T15:06:12.917Z",
+    "updated_at": "2026-10-28T15:06:22.493Z",
+    "id": 235562487474443,
+    "schema": {
+      "text": {
+        "type": "text",
+        "pos": 0,
+        "id": "WHNU88QTT1OreHbjC04Fqg"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "text",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "voet",
     "display_name": "Voet",
     "description": null,
@@ -2364,7 +2720,17 @@
     "is_root": false,
     "preview_tmpl": null,
     "is_nestable": true,
-    "all_presets": [],
+    "all_presets": [
+      {
+        "id": 232672252155762,
+        "name": "Main footer",
+        "component_id": 222883427716330,
+        "image": "",
+        "icon": "",
+        "color": "",
+        "description": ""
+      }
+    ],
     "preset_id": null,
     "real_name": "Voet",
     "component_group_uuid": null,
