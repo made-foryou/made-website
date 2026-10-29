@@ -30,3 +30,22 @@ export function linkTarget(link) {
 export function isInternal(href) {
 	return typeof href === 'string' && href.startsWith('/');
 }
+
+const zonderSlash = (pad) => pad.replace(/\/+$/, '') || '/';
+
+/* aria-current voor een menulink op de pagina met dit pad. Een link met een
+   anker wijst naar een strook, niet naar een pagina; telde die mee, dan stond
+   op de homepage elk "/#…"-item tegelijk aan. */
+export function linkCurrent(href, pathname) {
+	if (!isInternal(href) || !pathname || href.includes('#')) return {};
+
+	const doel = zonderSlash(href);
+	const huidig = zonderSlash(pathname);
+
+	if (huidig === doel) return { 'aria-current': 'page' };
+
+	/* Een onderliggende pagina (/werk/een-case) houdt zijn sectie aan. */
+	return doel !== '/' && huidig.startsWith(`${doel}/`) ?
+			{ 'aria-current': 'true' }
+		:	{};
+}

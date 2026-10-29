@@ -1,21 +1,16 @@
-import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
-import { isInternal, linkTarget, resolveLink } from '@/lib/links';
+import ActieveLink from '@/components/ActieveLink';
+import { linkTarget, resolveLink } from '@/lib/links';
 
-const NavLink = ({ blok }) => {
-	const href = resolveLink(blok.link) || '#';
-	const Tag = isInternal(href) ? Link : 'a';
-
-	return (
-		<Tag
-			href={href}
-			className="made-navlink"
-			{...linkTarget(blok.link)}
-			{...storyblokEditable(blok)}
-		>
-			{blok.label}
-		</Tag>
-	);
-};
+const NavLink = ({ blok }) => (
+	<ActieveLink
+		href={resolveLink(blok.link) || '#'}
+		className="made-navlink"
+		{...linkTarget(blok.link)}
+		{...storyblokEditable(blok)}
+	>
+		{blok.label}
+	</ActieveLink>
+);
 
 export default NavLink;
