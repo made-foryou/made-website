@@ -481,6 +481,16 @@ a:hover {
 	padding: 12px 2px;
 }
 
+/* De pagina waar je bent (ActieveLink.jsx zet aria-current). De streep is
+   --made-link, niet --made-accent: amber haalt op krijt niet de 3:1 die een
+   staat nodig heeft. In de voet staat aria-current er ook, zonder streep. */
+.hoofdnav .made-navlink[aria-current] {
+	text-decoration-line: underline;
+	text-decoration-color: var(--made-link);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 6px;
+}
+
 .hero__strook {
 	flex-grow: 1;
 	display: flex;

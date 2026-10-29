@@ -176,6 +176,16 @@ Drie dingen over dit bestand die makkelijk misgaan:
 voet gebruikt hetzelfde blok en zet er via `.voet .made-navlink` een rustigere
 stijl op.
 
+De `<a>` zelf is `ActieveLink.jsx` (het vijfde `'use client'`-bestand): een
+server component kan het huidige pad niet lezen, dus alleen die link leest
+`usePathname()` en zet `aria-current`. De regel staat in `linkCurrent()` in
+`src/lib/links.js`: `page` bij hetzelfde pad, `true` op een onderliggende
+pagina (`/werk/een-case` houdt `/werk` aan), en niets bij een link met een
+anker, anders staat op de homepage elk `/#…`-item tegelijk aan. Alleen in
+`.hoofdnav` krijgt dat een streep, in `--made-link` (amber haalt op krijt niet
+de 3:1 die een staat nodig heeft); in de voet staat het attribuut er wel, maar
+zonder stijl.
+
 `src/lib/links.js` vertaalt Storyblok multilink-velden naar een `href`; `story`-links worden een pad, `home` wordt `/`. Interne paden (alles wat met `/` begint) renderen als `next/link`, externe links, `mailto:` en ankers als gewone `<a>` — `@next/next/no-html-link-for-pages` slaat anders aan.
 
 ## Storyblok-configuratie
