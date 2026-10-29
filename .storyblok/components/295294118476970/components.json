@@ -1120,6 +1120,84 @@
     "metadata": {}
   },
   {
+    "name": "navigatie",
+    "display_name": "Navigatie",
+    "description": "Alleen het logo en het menu, voor een pagina die zonder hero begint.",
+    "schema": {
+      "tab-inhoud": {
+        "type": "tab",
+        "display_name": "Inhoud",
+        "keys": [
+          "nav_items"
+        ],
+        "pos": 0
+      },
+      "nav_items": {
+        "type": "bloks",
+        "display_name": "Menu-items",
+        "restrict_components": true,
+        "component_whitelist": [
+          "nav_link",
+          "button"
+        ],
+        "pos": 1
+      },
+      "tab-techniek": {
+        "type": "tab",
+        "display_name": "Weergave",
+        "keys": [
+          "logo_width",
+          "vlak"
+        ],
+        "pos": 2
+      },
+      "logo_width": {
+        "type": "number",
+        "display_name": "Logobreedte (px)",
+        "description": "Niet onder 120 volgens het huisstijlhandboek.",
+        "default_value": "150",
+        "pos": 3
+      },
+      "vlak": {
+        "type": "option",
+        "display_name": "Vlak",
+        "description": "De achtergrond waarop de strook staat.",
+        "default_value": "oppervlak",
+        "use_uuid": false,
+        "options": [
+          {
+            "name": "Standaard",
+            "value": "oppervlak"
+          },
+          {
+            "name": "Verhoogd (met lijn boven en onder)",
+            "value": "verhoogd"
+          },
+          {
+            "name": "Nachtgroen",
+            "value": "nachtgroen"
+          }
+        ],
+        "pos": 4
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Navigatie",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
     "name": "over_ons",
     "display_name": "Over ons",
     "description": null,

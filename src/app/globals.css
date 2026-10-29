@@ -435,14 +435,17 @@ a:hover {
 	overflow: hidden;
 }
 
-.hero__binnen {
+.hero__binnen,
+.navigatie__binnen {
 	width: 100%;
 	max-width: var(--made-maat-inhoud);
 	margin: 0 auto;
 	padding-inline: clamp(20px, 5.5vw, 80px);
 }
 
-.hero__nav {
+/* Het logo met het menu (HoofdNav.jsx): bovenin de hero, of als eigen
+   strook (Navigatie.jsx) op een pagina die zonder hero begint. */
+.hoofdnav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -451,15 +454,22 @@ a:hover {
 	padding-top: 28px;
 }
 
-.hero__logo {
+.hoofdnav__logo {
 	display: block;
 	padding: var(--made-space-2) 0;
 }
 
-.hero__menu {
+.hoofdnav__menu {
 	display: flex;
 	align-items: center;
 	gap: clamp(18px, 2.4vw, 34px);
+}
+
+/* Als eigen strook krijgt de navigatie onder evenveel lucht als erboven. */
+.navigatie {
+	padding-bottom: 28px;
+	background: var(--made-oppervlak);
+	color: var(--made-inhoud);
 }
 
 .made-navlink {

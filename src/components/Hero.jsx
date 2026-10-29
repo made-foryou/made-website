@@ -1,9 +1,8 @@
-import Link from 'next/link';
 import {
 	storyblokEditable,
 	StoryblokServerComponent,
 } from '@storyblok/react/rsc';
-import Logo from '@/components/Logo';
+import HoofdNav from '@/components/HoofdNav';
 import Beeldmerk from '@/components/Beeldmerk';
 import Tekstveld from '@/components/Tekstveld';
 import { accentueer, splitsOpSlash } from '@/lib/tekst';
@@ -29,7 +28,6 @@ const Hero = ({ blok }) => {
 	/* Twee beeldkanten: de twee losse slashes, of het nachtgroen vlak met de
 	   slash die eruit loopt en het beeldmerk erin. */
 	const opVlak = blok.beeld_variant === 'vlak';
-	const logoBreedte = Number(blok.logo_width) || 150;
 	const slashHoogte = Number(blok.slash_size) || 480;
 
 	return (
@@ -40,23 +38,7 @@ const Hero = ({ blok }) => {
 		>
 			{toonNav && (
 				<div className="hero__binnen">
-					<nav className="hero__nav" aria-label="Hoofdmenu">
-						<Link
-							href="/"
-							className="hero__logo"
-							aria-label="MADE — naar de homepage"
-						>
-							<Logo width={logoBreedte} tagline={false} />
-						</Link>
-						<div className="hero__menu" data-onthul="">
-							{blok.nav_items?.map((nestedBlok) => (
-								<StoryblokServerComponent
-									blok={nestedBlok}
-									key={nestedBlok._uid}
-								/>
-							))}
-						</div>
-					</nav>
+					<HoofdNav items={blok.nav_items} logoBreedte={blok.logo_width} />
 				</div>
 			)}
 

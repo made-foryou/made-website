@@ -3,6 +3,7 @@ import Feature from '@/components/Feature';
 import Grid from '@/components/Grid';
 import Teaser from '@/components/Teaser';
 import Hero from '@/components/Hero';
+import Navigatie from '@/components/Navigatie';
 import Button from '@/components/Button';
 import NavLink from '@/components/NavLink';
 import OverOns from '@/components/OverOns';
@@ -39,6 +40,7 @@ export const getStoryblokApi = storyblokInit({
 		grid: Grid,
 		teaser: Teaser,
 		hero: Hero,
+		navigatie: Navigatie,
 		button: Button,
 		nav_link: NavLink,
 		over_ons: OverOns,
