@@ -19,8 +19,8 @@ import {
       DEVELOPMENT (op smalle schermen onder elkaar).
    3. De aanvullingen worden weer gewist, MA en DE schuiven naar elkaar en de
       slash tekent zich ertussen: het volledige logo, met tagline.
-   4. Het logo vliegt naar het logo in de hero-navigatie en de pagina komt
-      onder de intro vandaan.
+   4. Het logo vliegt naar het logo in de navigatie (in de hero of in de
+      navigatiestrook) en de pagina komt onder de intro vandaan.
 
    De intro speelt één keer per browsersessie, niet bij prefers-reduced-motion
    en niet in een iframe (Storyblok Visual Editor). Met ?intro in de URL
@@ -314,10 +314,10 @@ function speelIntro(wortel, klaar) {
 		overgedragen = true;
 		tl.pause();
 
-		doelLogo = document.querySelector('.hero__logo svg');
+		doelLogo = document.querySelector('.hoofdnav__logo svg');
 		paginaInhoud = [
 			...document.querySelectorAll(
-				'.hero__menu, .hero__label, .hero__titel, .hero__intro, .hero__acties, .hero__slash, .hero__beeldvlak',
+				'.hoofdnav__menu, .hero__label, .hero__titel, .hero__intro, .hero__acties, .hero__slash, .hero__beeldvlak',
 			),
 		];
 

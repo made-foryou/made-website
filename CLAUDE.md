@@ -52,6 +52,7 @@ Ze komen allemaal uit het designcanvas:
 | Blok | Onderdelen |
 | --- | --- |
 | `hero` | `nav_link`, `button` (beeldkant: twee slashes of een nachtgroen vlak) |
+| `navigatie` | `nav_link`, `button` (alleen logo en menu, voor een pagina zonder hero) |
 | `loopband` | — (steekwoorden, één per regel) |
 | `profielen` | `profiel` |
 | `over_ons` | `team_lid` |
@@ -136,6 +137,14 @@ van de intro animeert de hero-elementen op naam — `.hero__beeldvlak` staat in
 diezelfde selector in `IntroAnimatie.jsx`, dus een derde variant moet daar ook
 bij.
 
+Het logo met het menu is `HoofdNav.jsx` (klassen `hoofdnav`, `hoofdnav__logo`,
+`hoofdnav__menu`), geen eigen blok. De hero zet hem bovenin; de strook
+`navigatie` rendert alleen die, voor een pagina die zonder hero begint. Beide
+hebben dezelfde velden (`nav_items`, `logo_width`). Scène 4 van de intro zoekt
+het doellogo via `.hoofdnav__logo svg`, dus de vlucht landt ook op een pagina
+zonder hero op het logo. Bouw de navigatie dus niet opnieuw na in een strook,
+anders valt de intro daar terug op wegfaden.
+
 `tekst_beeld` dekt zowel "Tekst naast beeld" als "Beeld naast tekst": het veld
 `beeld_positie` draait alleen de CSS-volgorde om, de markup houdt de tekst
 vooraan in de leesvolgorde. Het uitgelichte pakket staat op nachtgroen in
@@ -163,7 +172,7 @@ Drie dingen over dit bestand die makkelijk misgaan:
 
 `pull` overschrijft dit bestand met wat er in de space staat, dus push je lokale wijzigingen eerst. De `logs/` en `reports/` die de CLI ernaast aanmaakt staan in `.gitignore`.
 
-`NavLink.jsx` rendert met de klasse `made-navlink` (niet `hero__menulink`): de
+`NavLink.jsx` rendert met de klasse `made-navlink` (niet `hoofdnav__link`): de
 voet gebruikt hetzelfde blok en zet er via `.voet .made-navlink` een rustigere
 stijl op.
 
@@ -194,7 +203,7 @@ Fonts (Nunito voor koppen, Instrument Sans voor tekst) laden via `next/font/goog
 
 ## Intro-animatie
 
-`src/components/IntroAnimatie.jsx` (het tweede `'use client'`-bestand) legt bij de eerste paginalading een laag over de site en speelt het logo in vier scènes af met **anime.js v4** (`animejs`): MADE tekent zich in → MA en DE schuiven uiteen en typen zich uit tot MARKETING en DEVELOPMENT → dat wordt gewist, de helften komen samen en de slash plus tagline verschijnen → het logo vliegt naar het logo in de hero-navigatie en de hero-inhoud komt met een stagger tevoorschijn. `layout.js` rendert het component als eerste kind van `<body>`, zodat de overlay al in de server-HTML zit voordat de pagina zichtbaar wordt.
+`src/components/IntroAnimatie.jsx` (het tweede `'use client'`-bestand) legt bij de eerste paginalading een laag over de site en speelt het logo in vier scènes af met **anime.js v4** (`animejs`): MADE tekent zich in → MA en DE schuiven uiteen en typen zich uit tot MARKETING en DEVELOPMENT → dat wordt gewist, de helften komen samen en de slash plus tagline verschijnen → het logo vliegt naar het logo in de navigatie (`HoofdNav.jsx`, in de hero of in de strook `navigatie`) en de hero-inhoud komt tevoorschijn. `layout.js` rendert het component als eerste kind van `<body>`, zodat de overlay al in de server-HTML zit voordat de pagina zichtbaar wordt.
 
 Spelregels die in de code zitten en die je niet moet omzeilen:
 
